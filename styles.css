@@ -1,0 +1,464 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #000000;
+    line-height: 1.4;
+    font-size: 16px;
+}
+
+/* Sticky Navigation */
+.sticky-nav {
+    position: sticky;
+    top: 0;
+    background-color: #ffffff;
+    z-index: 1000;
+    padding: 20px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.nav-container {
+    max-width: none;
+    margin: 0;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-left {
+    display: flex;
+    gap: 8px;
+}
+
+.nav-link {
+    color: #666;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 8px 16px;
+    border-radius: 20px;
+    background-color: #f0f0f0;
+    transition: all 0.2s ease;
+}
+
+.nav-link.active {
+    color: #000000;
+    background-color: #00ff88;
+}
+
+.nav-link:hover:not(.active) {
+    color: #000000;
+    background-color: #e0e0e0;
+}
+
+.site-title {
+    font-size: 16px;
+    font-weight: 400;
+    color: #000000;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.view-toggle {
+    color: #666;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.view-link {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    padding: 2px 4px;
+}
+
+.view-link.active {
+    color: #00ff88;
+    text-decoration: underline;
+}
+
+.view-link:hover:not(.active) {
+    color: #000000;
+}
+
+/* Main Content */
+.main-content {
+    max-width: none;
+    margin: 0;
+    padding: 16px;
+}
+
+/* Bio Section */
+.bio-section {
+    margin-bottom: 16px;
+}
+
+.info-card {
+    background-color: #00FF2F;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+    width: 50%;
+}
+
+.bio-text {
+    font-size: 16px;
+    color: #000000;
+    margin-bottom: 0;
+    line-height: 1.5;
+}
+
+.filter-section {
+    margin-bottom: 16px;
+}
+
+.filter-bar {
+    background-color: #00FF2F;
+    border-radius: 8px;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filter-left {
+    display: flex;
+    align-items: center;
+}
+
+.selected-projects {
+    color: #000000;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.filter-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.filter-label {
+    color: #000000;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.filter-link {
+    color: #000000;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    transition: font-weight 0.2s ease;
+}
+
+.filter-link.active {
+    font-weight: bold;
+}
+
+.filter-link:hover:not(.active) {
+    font-weight: 500;
+}
+
+/* Projects Section */
+.projects-section {
+    margin-bottom: 16px;
+}
+
+.projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Project Section */
+.project-section {
+    width: 100%;
+}
+
+.project-card {
+    background-color: #00FF2F;
+    border: none;
+    padding: 16px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    align-items: start;
+}
+
+/* Project Left Column */
+.project-left {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.project-year {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 0;
+    font-weight: 400;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.project-title {
+    font-size: 24px;
+    font-weight: 400;
+    color: #000000;
+    margin-bottom: 0;
+    line-height: 1.2;
+}
+
+.project-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+}
+
+.tag {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 4px 8px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 400;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+/* Project Right Column */
+.project-right {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.project-description {
+    color: #000000;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+.project-status {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+/* Project Media */
+.project-media {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+    align-items: flex-start;
+}
+
+.media-container {
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    background-color: #000000;
+}
+
+.media-container.media-left {
+    width: 50%;
+    height: auto;
+    flex: 1;
+}
+
+.media-container.media-right {
+    width: 50%;
+    height: auto;
+    flex: 1;
+}
+
+.project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+
+.project-video {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+    border: none;
+    outline: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Grid View */
+.projects-list.grid-view {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.projects-list.grid-view .project-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.projects-list.grid-view .project-card {
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+.projects-list.grid-view .project-media {
+    margin-top: auto;
+}
+
+/* Footer */
+.footer {
+    background-color: #ffffff;
+    border-top: 1px solid #e0e0e0;
+    padding: 20px 0;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav-arrow {
+    color: #666;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.2s ease;
+}
+
+.nav-arrow:hover {
+    color: #000000;
+}
+
+.page-info {
+    color: #666;
+    font-size: 14px;
+}
+
+.restart-button {
+    color: #666;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s ease;
+}
+
+.restart-button:hover {
+    color: #000000;
+}
+
+.time-display {
+    color: #666;
+    font-size: 14px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 400;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 20px;
+        padding: 0 16px;
+    }
+    
+    .nav-left,
+    .nav-right {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .main-content {
+        padding: 16px;
+    }
+    
+    .info-card {
+        width: 100%;
+    }
+    
+    .filter-bar {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+    }
+    
+    .filter-right {
+        width: 100%;
+        justify-content: flex-start;
+    }
+    
+    .projects-list {
+        gap: 16px;
+    }
+    
+    .project-card {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .project-media {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .media-container.media-left,
+    .media-container.media-right {
+        width: 100%;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 20px;
+        padding: 0 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-title {
+        font-size: 24px;
+    }
+    
+    .project-title {
+        font-size: 20px;
+    }
+    
+    .media-container {
+        height: 200px;
+    }
+    
+    .projects-list {
+        gap: 16px;
+    }
+}
