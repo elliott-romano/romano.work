@@ -4,29 +4,198 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>elliott romano</title>
-    <style>
-      html, body {
-        height: 100%;
-        margin: 0;
-      }
-      body {
-        display: grid;
-        place-items: center;
-        font-family: "IBM Plex Mono", monospace;
-        font-size: 16px;
-        line-height: 1.4;
-      }
-      .line {
-        max-width: 38rem;
-        padding: 1rem;
-        text-align: center;
-      }
-    </style>
+     <style>
+       html, body {
+         height: 100%;
+         margin: 0;
+         background: #1a1a1a;
+         color: #fff;
+       }
+       body {
+         display: grid;
+         place-items: center;
+         font-family: "IBM Plex Mono", monospace;
+         font-size: 44px;
+         line-height: 1.4;
+         position: relative;
+       }
+       .line {
+         max-width: 64rem;
+         padding: 1rem;
+         text-align: center;
+         mix-blend-mode: difference;
+         position: relative;
+         z-index: 2;
+         font-size: 64px;
+         font-weight: 500;
+         text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+       }
+       .footer {
+         position: fixed;
+         bottom: 2rem;
+         left: 50%;
+         transform: translateX(-50%);
+         display: flex;
+         gap: 2rem;
+         z-index: 2;
+       }
+       .footer-link {
+         color: #fff;
+         text-decoration: none;
+         font-family: "IBM Plex Mono", monospace;
+         font-size: 14px;
+         background: none;
+         border: none;
+         cursor: pointer;
+         padding: 0;
+         transition: opacity 0.3s ease;
+       }
+       .footer-link:hover {
+         opacity: 0.6;
+       }
+       .email-copy {
+         position: relative;
+       }
+       .email-copy::after {
+         content: attr(data-email);
+         position: absolute;
+         bottom: 100%;
+         left: 50%;
+         transform: translateX(-50%);
+         background: #000;
+         color: #fff;
+         padding: 0.5rem;
+         font-size: 12px;
+         white-space: nowrap;
+         opacity: 0;
+         pointer-events: none;
+         transition: opacity 0.3s ease;
+       }
+       .email-copy:hover::after {
+         opacity: 1;
+       }
+       .background-video {
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+         z-index: 1;
+         opacity: 0.8;
+       }
+       .marquee {
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 2rem;
+         background: #fff;
+         color: #000;
+         overflow: hidden;
+         z-index: 3;
+         display: flex;
+         align-items: center;
+       }
+       .marquee-content {
+         font-family: "IBM Plex Mono", monospace;
+         font-size: 14px;
+         white-space: nowrap;
+         animation: marquee 7.2s linear infinite;
+         display: inline-block;
+       }
+       @keyframes marquee {
+         0% {
+           transform: translateX(100vw);
+         }
+         100% {
+           transform: translateX(-100%);
+         }
+       }
+     </style>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
   </head>
-  <body>
-    <div class="line">
-      elliott romano is a graphic &amp; product designer focused on interactive tools and systems.
-    </div>
-  </body>
+   <body>
+     <div class="marquee">
+       <div class="marquee-content">this is a temporary website</div>
+     </div>
+     <video id="background-video" class="background-video" autoplay muted loop>
+       <!-- Video will be dynamically loaded -->
+     </video>
+     <div class="line">
+       elliott romano is a graphic &amp; product designer focused on interactive tools and systems.
+     </div>
+     <footer class="footer">
+       <a href="https://www.instagram.com/e_romno/" target="_blank" class="footer-link">instagram</a>
+       <a href="https://www.linkedin.com/in/elliott-romano-02b95673" target="_blank" class="footer-link">linkedin</a>
+       <button class="footer-link email-copy" data-email="elliottmatthewromano@gmail.com">email</button>
+     </footer>
+     <script>
+       // Email copy functionality
+       document.querySelector('.email-copy').addEventListener('click', function() {
+         const email = this.getAttribute('data-email');
+         navigator.clipboard.writeText(email).then(function() {
+           // Show feedback
+           const originalText = this.textContent;
+           this.textContent = 'copied!';
+           setTimeout(() => {
+             this.textContent = originalText;
+           }, 1000);
+         }.bind(this)).catch(function(err) {
+           console.error('Could not copy text: ', err);
+         });
+       });
+
+       // Random video background functionality
+       const videoFiles = [
+         'tempAssets/00_gif.mp4',
+         'tempAssets/03.mp4',
+         'tempAssets/book-square 5.mp4',
+         'tempAssets/chipsAct.mp4',
+         'tempAssets/chladniBook.mov',
+         'tempAssets/chladniDemo.mov',
+         'tempAssets/HMclip.mp4',
+         'tempAssets/LRAD.mp4',
+         'tempAssets/oscii.mov'
+       ];
+
+       const backgroundVideo = document.getElementById('background-video');
+       let currentVideoIndex = 0;
+
+       function loadRandomVideo() {
+         // Get a random video that's different from the current one
+         let randomIndex;
+         do {
+           randomIndex = Math.floor(Math.random() * videoFiles.length);
+         } while (randomIndex === currentVideoIndex && videoFiles.length > 1);
+         
+         currentVideoIndex = randomIndex;
+         const videoSrc = videoFiles[randomIndex];
+         console.log('Loading video:', videoSrc);
+         
+         // Directly set the video source
+         backgroundVideo.src = videoSrc;
+         backgroundVideo.muted = true;
+         backgroundVideo.loop = true;
+         backgroundVideo.autoplay = true;
+         
+         backgroundVideo.addEventListener('loadeddata', function() {
+           console.log('Video loaded successfully:', videoSrc);
+           backgroundVideo.play();
+         });
+         
+         backgroundVideo.addEventListener('error', function(e) {
+           console.log(`Video ${videoSrc} failed to load:`, e);
+           // If video fails to load, try the next one
+           setTimeout(loadRandomVideo, 1000);
+         });
+       }
+
+       // Load first video on page load
+       loadRandomVideo();
+       
+       // Change video every 10 seconds
+       setInterval(loadRandomVideo, 10000);
+     </script>
+   </body>
 </html>
