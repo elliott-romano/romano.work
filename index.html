@@ -10,12 +10,17 @@
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Marquee -->
+    <div class="marquee">
+        <div class="marquee-content">currently seeking full-time & contract opportunities</div>
+    </div>
+
     <!-- Sticky Navigation -->
     <nav class="sticky-nav">
         <div class="nav-container">
             <div class="nav-left">
-                <a href="#" class="nav-link active">Works</a>
-                <a href="#" class="nav-link">Info</a>
+                <a href="index.html" class="nav-link active">Works</a>
+                <a href="info.html" class="nav-link">Info</a>
             </div>
             <div class="nav-center">
                 <h1 class="site-title">ELLIOTT ROMANO</h1>
@@ -32,8 +37,8 @@
         <section class="bio-section">
             <div class="info-card">
                 <p class="bio-text">
-                    Elliott [b. 1989] is a designer specializing in product, motion, & interactive design & research projects. 
-                    He holds an masters degree from Rhode Island School and based in Portland, Oregon.
+                    Elliott [b. 1989] is a graphic designer/educator specializing in product, motion, & interactive design projects. His studio and research practice investigates the design of software and expressive tools that make people better at what they do - or reveal something totally new, often in real-time. 
+                    He holds an masters degree from Rhode Island School and based in the pacific northwest.
                 </p>
             </div>
             <div class="filter-section">
@@ -59,7 +64,7 @@
             <div class="projects-list">
                 <!-- Project 1 -->
                 <article class="project-section">
-                    <div class="project-card">
+                    <div class="project-card sticky-card">
                         <div class="project-left">
                             <div class="project-year">2025</div>
                             <h2 class="project-title">Instrument MFA Thesis</h2>
@@ -70,13 +75,15 @@
                         </div>
                         <div class="project-right">
                             <p class="project-description">
-                                Instrument is the culmination of a three-year inquiry into what it means to design tools that perform. 
+                                <span class="description-text">Instrument is the culmination of a three-year inquiry into what it means to design tools that perform. 
                                 It is part research project and part artist book. The thesis explores how real-time feedback systems, 
                                 both analog and digital, can function as graphic instruments: systems that generate visual and linguistic 
                                 output through performance. Through essays, interviews, and custom tools of my own design, the book frames 
-                                design as an instrumental practice that exists in the space between recording and live expression.
+                                design as an instrumental practice that exists in the space between recording and live expression.</span>
+                                <span class="description-more hidden">Through essays, interviews, and custom tools of my own design, the book frames 
+                                design as an instrumental practice that exists in the space between recording and live expression.</span>
+                                <button class="show-more-btn" onclick="toggleShowMore(this)">show more</button>
                             </p>
-                            <div class="project-status">case study coming soon</div>
                         </div>
                     </div>
                     <div class="project-media">
@@ -94,7 +101,7 @@
 
                 <!-- Project 2 -->
                 <article class="project-section">
-                    <div class="project-card">
+                    <div class="project-card sticky-card">
                         <div class="project-left">
                             <div class="project-year">2025</div>
                             <h2 class="project-title">Docker Tag Mutability</h2>
@@ -105,14 +112,14 @@
                         </div>
                         <div class="project-right">
                             <p class="project-description">
-                                I designed and shipped Tag Mutability for Docker Hub, enabling teams to safely and flexibly manage how 
-                                image tags are updated. This gave organizations stronger governance over critical workflows—reducing 
-                                accidental overwrites, improving auditability, and aligning Docker Hub with enterprise CI/CD needs. 
-                                I defined the user experience across multiple surfaces in and outside of the UI and CLI. The work 
-                                extended existing platform patterns and shipped features like per-repository settings, tag retention 
-                                rules, and audit-friendly activity visibility.
+                                <span class="description-text">Working with the Docker Product Team I designed and helped implement
+                                iterative updates to workflows in managing images Docker Hub, 
+                                the primary container registry used by developers and organizations worldwide.</span>
+                                <span class="description-more hidden">The feature introduced tag immutability controls, giving teams precise 
+                                control over how image tags are updated and preventing accidental
+                                overwrites that could disrupt builds or deployments.</span>
+                                <button class="show-more-btn" onclick="toggleShowMore(this)">show more</button>
                             </p>
-                            <div class="project-status">case study coming soon</div>
                         </div>
                     </div>
                     <div class="project-media">
@@ -124,7 +131,7 @@
                         </div>
                         <div class="media-container media-right">
                             <video class="project-video" autoplay muted loop playsinline>
-                                <source src="assets/index/docker/docker.mov" type="video/mp4">
+                                <source src="assets/index/docker/gordonOverview.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                         </div>
@@ -133,10 +140,10 @@
 
                 <!-- Project 3 -->
                 <article class="project-section">
-                    <div class="project-card">
+                    <div class="project-card sticky-card">
                         <div class="project-left">
                             <div class="project-year">2024</div>
-                            <h2 class="project-title">Motion Graphics Collection</h2>
+                            <h2 class="project-title">CTC Visual Identity</h2>
                             <div class="project-tags">
                                 <span class="tag">Motion</span>
                                 <span class="tag">Typography</span>
@@ -144,29 +151,29 @@
                         </div>
                         <div class="project-right">
                             <p class="project-description">
-                                A collection of experimental motion graphics exploring the intersection of typography and movement. 
-                                These pieces investigate how text can become a performative element, creating visual narratives 
-                                through kinetic typography and dynamic compositions.
-                            </p>
-                            <div class="project-status">case study coming soon</div>
+                                I designed the visual identity for the RISD CTC Department (Computation, Technology & Culture), a new program and department focused on digital artistic and design practice through the lens of computer science.
                         </div>
                     </div>
                     <div class="project-media">
-                        <div class="media-placeholder media-left">
-                            <div class="media-content">Typography Study</div>
+                        <div class="media-container media-left">
+                            <video class="project-video" autoplay muted loop>
+                                <source src="assets/index/ctc/ctcEx.mov" type="video/mp4">
+                            </video>
                         </div>
-                        <div class="media-placeholder media-right">
-                            <div class="media-content">Motion Sequence</div>
+                        <div class="media-container media-right">
+                            <video class="project-video" autoplay muted loop>
+                                <source src="assets/index/ctc/social1920.mp4" type="video/mp4">
+                            </video>
                         </div>
                     </div>
                 </article>
 
                 <!-- Project 4 -->
                 <article class="project-section">
-                    <div class="project-card">
+                    <div class="project-card sticky-card">
                         <div class="project-left">
                             <div class="project-year">2024</div>
-                            <h2 class="project-title">Brand Identity System</h2>
+                            <h2 class="project-title">Chladni Sans</h2>
                             <div class="project-tags">
                                 <span class="tag">Identity</span>
                                 <span class="tag">Branding</span>
@@ -174,19 +181,53 @@
                         </div>
                         <div class="project-right">
                             <p class="project-description">
-                                Comprehensive brand identity development for a technology startup, including logo design, 
-                                color palette, typography system, and application across various touchpoints. The identity 
-                                reflects the company's innovative approach while maintaining professional credibility.
+                                Chladni Sans is a physical typeface designed for the CTC Department at RISD. It is a geometric sans serif typeface that is inspired by the work of the mathematician Ernst Chladni.
                             </p>
-                            <div class="project-status">case study coming soon</div>
                         </div>
                     </div>
                     <div class="project-media">
-                        <div class="media-placeholder media-left">
-                            <div class="media-content">Logo Design</div>
+                        <div class="media-container media-left">
+                            <video class="project-video" autoplay muted loop>
+                                <source src="assets/index/chladni/00Book.mov" type="video/mp4">
+                            </video>
                         </div>
-                        <div class="media-placeholder media-right">
-                            <div class="media-content">Brand Application</div>
+                        <div class="media-container media-right">
+                            <video class="project-video" autoplay muted loop>
+                                <source src="assets/index/chladni/01_chladniDemo.mov" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 5 - DigitalOcean Product Onboarding -->
+                <article class="project-section">
+                    <div class="project-card sticky-card">
+                        <div class="project-left">
+                            <div class="project-year">2024</div>
+                            <h2 class="project-title">DigitalOcean Product Onboarding</h2>
+                            <div class="project-tags">
+                                <span class="tag">Product Design</span>
+                                <span class="tag">UX</span>
+                            </div>
+                        </div>
+                        <div class="project-right">
+                            <p class="project-description">
+                                Designed and implemented a comprehensive onboarding experience for DigitalOcean's product suite, 
+                                helping new users understand and navigate the platform's core services. The onboarding flow 
+                                guides users through key features while maintaining engagement and reducing time-to-value.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="project-media">
+                        <div class="media-container media-left">
+                            <video class="project-video" autoplay muted loop>
+                                <source src="assets/index/digitalocean/reel.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="media-container media-right">
+                            <video class="project-video" autoplay muted loop>
+                                <source src="assets/index/digitalocean/zoom 2.mp4" type="video/mp4">
+                            </video>
                         </div>
                     </div>
                 </article>
@@ -197,16 +238,31 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
-            <div class="pagination">
-                <a href="#" class="nav-arrow">←</a>
-                <span class="page-info">28 / 30</span>
-                <a href="#" class="nav-arrow">→</a>
-            </div>
-            <div class="time-display" id="current-time"></div>
-            <a href="#" class="restart-button">Restart R</a>
+            <div class="last-updated">last updated at october 8 at 9:21:05 by elliott romano</div>
+            <div class="copyright">© Elliott Romano 2025</div>
         </div>
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        function toggleShowMore(button) {
+            const descriptionMore = button.previousElementSibling;
+            const descriptionText = button.parentElement.querySelector('.description-text');
+            
+            if (descriptionMore.classList.contains('hidden')) {
+                // Show more
+                descriptionMore.classList.remove('hidden');
+                descriptionText.style.display = 'block';
+                descriptionText.style.webkitLineClamp = 'unset';
+                button.textContent = 'show less';
+            } else {
+                // Show less
+                descriptionMore.classList.add('hidden');
+                descriptionText.style.display = '-webkit-box';
+                descriptionText.style.webkitLineClamp = '2';
+                button.textContent = 'show more';
+            }
+        }
+    </script>
 </body>
 </html>

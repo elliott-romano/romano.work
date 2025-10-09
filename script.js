@@ -11,7 +11,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Navigation link handlers
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
+            // Only prevent default for links that should stay on the same page
+            const href = this.getAttribute('href');
+            if (href === '#' || (href === 'index.html' && window.location.pathname === '/')) {
+                e.preventDefault();
+            }
             navLinks.forEach(l => l.classList.remove('active'));
             this.classList.add('active');
         });
