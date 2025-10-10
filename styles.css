@@ -7,10 +7,36 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #ffffff;
+    background-color: #f5f5f5;
     color: #000000;
     line-height: 1.4;
     font-size: 16px;
+}
+
+/* Page Load Animation */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.fade-in-delay-1 {
+    animation-delay: 0.1s;
+}
+
+.fade-in-delay-2 {
+    animation-delay: 0.2s;
+}
+
+.fade-in-delay-3 {
+    animation-delay: 0.3s;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Marquee */
@@ -67,15 +93,15 @@ body {
     text-decoration: none;
     font-size: 16px;
     font-weight: 400;
-    padding: 8px 16px;
-    border-radius: 20px;
+    padding: 4px 8px;
+    border-radius: 4px;
     background-color: #f0f0f0;
     transition: all 0.2s ease;
 }
 
 .nav-link.active {
     color: #000000;
-    background-color: #00ff88;
+    background-color: #00FF2F;
 }
 
 .nav-link:hover:not(.active) {
@@ -337,6 +363,10 @@ body {
     position: relative;
     overflow: hidden;
     background-color: #000000;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
 }
 
 .media-container.media-left {
@@ -355,7 +385,6 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 8px;
     display: block;
 }
 
@@ -363,7 +392,6 @@ body {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    border-radius: 8px;
     display: block;
     border: none;
     outline: none;
@@ -444,6 +472,69 @@ body {
     color: #000000;
     margin-top: 8px;
     font-style: italic;
+}
+
+/* Social Links */
+.social-links {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.social-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background-color: #00FF2F;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #000000;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 700;
+    font-size: 16px;
+    transition: all 0.2s ease;
+}
+
+.social-link:hover {
+    background-color: #00e629;
+}
+
+.link-icon {
+    font-size: 14px;
+}
+
+.email-copy {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background-color: #00FF2F;
+    border-radius: 4px;
+    border: none;
+    color: #000000;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    z-index: 10;
+    pointer-events: auto;
+}
+
+.email-copy:hover {
+    background-color: #00e629;
+}
+
+.email-copy:active {
+    background-color: #00cc00;
+    transform: scale(0.98);
+}
+
+.copy-text {
+    font-size: 14px;
 }
 
 /* Experience Cards */
@@ -601,7 +692,7 @@ body {
 /* Grid View */
 .projects-list.grid-view {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 16px;
 }
 
@@ -611,12 +702,19 @@ body {
 }
 
 .projects-list.grid-view .project-card {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 16px;
 }
 
 .projects-list.grid-view .project-media {
-    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.projects-list.grid-view .media-container {
+    width: 100%;
 }
 
 /* Footer */

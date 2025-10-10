@@ -83,7 +83,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const totalPages = 30;
     
     function updatePagination() {
-        pageInfo.textContent = `${currentPage} / ${totalPages}`;
+        if (pageInfo) {
+            pageInfo.textContent = `${currentPage} / ${totalPages}`;
+        }
     }
     
     if (prevButton) {
@@ -224,6 +226,64 @@ document.addEventListener('DOMContentLoaded', function() {
     // Update time immediately and then every second
     updateTime();
     setInterval(updateTime, 1000);
+
+    // Email copy functionality
+    const emailCopyButtons = document.querySelectorAll('.email-copy');
+    
+    emailCopyButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const email = button.getAttribute('data-email');
+            const copyText = button.querySelector('.copy-text');
+            
+            // Try modern clipboard API first
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(email).then(function() {
+                    const originalText = copyText.textContent;
+                    copyText.textContent = 'Copied!';
+                    setTimeout(() => {
+                        copyText.textContent = originalText;
+                    }, 2000);
+                }).catch(function(err) {
+                    fallbackCopy(email, copyText);
+                });
+            } else {
+                fallbackCopy(email, copyText);
+            }
+        });
+    });
+    
+    function fallbackCopy(text, copyTextElement) {
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-999999px';
+        textArea.style.top = '-999999px';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        
+        try {
+            const successful = document.execCommand('copy');
+            if (successful) {
+                console.log('Email copied successfully via fallback');
+                const originalText = copyTextElement.textContent;
+                copyTextElement.textContent = 'Copied!';
+                setTimeout(() => {
+                    copyTextElement.textContent = originalText;
+                }, 2000);
+            } else {
+                console.error('Fallback copy failed');
+                alert('Copy failed. Please copy manually: ' + text);
+            }
+        } catch (err) {
+            console.error('Fallback copy error:', err);
+            alert('Copy failed. Please copy manually: ' + text);
+        }
+        
+        document.body.removeChild(textArea);
+    }
 });
 
 // Add CSS for grid view
