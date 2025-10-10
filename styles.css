@@ -397,6 +397,11 @@ body {
     outline: none;
     margin: 0;
     padding: 0;
+    -webkit-playsinline: true;
+    playsinline: true;
+    controls: false;
+    controlslist: nodownload nofullscreen noremoteplayback;
+    disablepictureinpicture: true;
 }
 
 /* Specific fix for Instrument project only */
