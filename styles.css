@@ -115,6 +115,7 @@ body {
     color: #000000;
     letter-spacing: -0.5px;
     text-transform: uppercase;
+    text-align: center;
 }
 
 .nav-right {
@@ -402,6 +403,54 @@ body {
     controls: false;
     controlslist: nodownload nofullscreen noremoteplayback;
     disablepictureinpicture: true;
+    -webkit-appearance: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* Hide Safari's native video controls */
+.project-video::-webkit-media-controls {
+    display: none !important;
+}
+
+.project-video::-webkit-media-controls-start-playback-button {
+    display: none !important;
+}
+
+.project-video::-webkit-media-controls-panel {
+    display: none !important;
+}
+
+.project-video::-webkit-media-controls-play-button {
+    display: none !important;
+}
+
+.project-video::-webkit-media-controls-timeline {
+    display: none !important;
+}
+
+.project-video::-webkit-media-controls-current-time-display {
+    display: none !important;
+}
+
+.project-video::-webkit-media-controls-time-remaining-display {
+    display: none !important;
+}
+
+.project-video::-webkit-media-controls-mute-button {
+    display: none !important;
+}
+
+.project-video::-webkit-media-controls-toggle-fullscreen-button {
+    display: none !important;
+}
+
+.project-video::-webkit-media-controls-volume-slider {
+    display: none !important;
+}
+
+.project-video::-webkit-media-controls-fullscreen-button {
+    display: none !important;
 }
 
 /* Specific fix for Instrument project only */
@@ -787,6 +836,14 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .view-toggle {
+        display: none;
+    }
+    
+    .project-tags {
+        display: none;
+    }
+    
     .nav-container {
         flex-direction: column;
         gap: 20px;
@@ -804,6 +861,38 @@ body {
     }
     
     .info-card {
+        width: 100%;
+    }
+    
+    .projects-list {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+    
+    .projects-list.grid-view {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+    
+    .project-section {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+    
+    .project-card {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 16px !important;
+    }
+    
+    .project-media {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 16px !important;
+    }
+    
+    .media-container.media-left,
+    .media-container.media-right {
         width: 100%;
     }
     
