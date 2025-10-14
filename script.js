@@ -1,5 +1,38 @@
 // Portfolio Website JavaScript
 
+// Toggle show more functionality
+function toggleShowMore(button) {
+    const descriptionText = button.previousElementSibling.previousElementSibling;
+    const descriptionMore = button.previousElementSibling;
+    
+    if (descriptionMore.classList.contains('hidden')) {
+        descriptionMore.classList.remove('hidden');
+        button.textContent = 'show less';
+    } else {
+        descriptionMore.classList.add('hidden');
+        button.textContent = 'show more';
+    }
+}
+
+// Hide show more buttons for content that doesn't need truncation
+function hideUnnecessaryShowMoreButtons() {
+    const showMoreButtons = document.querySelectorAll('.show-more-btn');
+    
+    showMoreButtons.forEach(button => {
+        const descriptionText = button.previousElementSibling.previousElementSibling;
+        const descriptionMore = button.previousElementSibling;
+        
+        // Check if the text actually needs truncation
+        const textHeight = descriptionText.scrollHeight;
+        const lineHeight = parseFloat(getComputedStyle(descriptionText).lineHeight);
+        const maxHeight = lineHeight * 3; // 3 lines
+        
+        if (textHeight <= maxHeight) {
+            button.style.display = 'none';
+        }
+    });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     // Navigation functionality
     const navLinks = document.querySelectorAll('.nav-link');
@@ -51,17 +84,16 @@ document.addEventListener('DOMContentLoaded', function() {
     // Filter projects based on selected tag
     function filterProjects(filterValue) {
         projectSections.forEach(section => {
-            const tags = section.querySelectorAll('.tag');
+            const tagsElement = section.querySelector('.project-tags-text');
             let shouldShow = false;
             
             if (filterValue === 'all') {
                 shouldShow = true;
-            } else {
-                tags.forEach(tag => {
-                    if (tag.textContent.toLowerCase().includes(filterValue)) {
-                        shouldShow = true;
-                    }
-                });
+            } else if (tagsElement) {
+                const tagsText = tagsElement.textContent.toLowerCase();
+                if (tagsText.includes(filterValue)) {
+                    shouldShow = true;
+                }
             }
             
             if (shouldShow) {
@@ -226,6 +258,17 @@ document.addEventListener('DOMContentLoaded', function() {
     // Update time immediately and then every second
     updateTime();
     setInterval(updateTime, 1000);
+
+    // Hide unnecessary show more buttons
+    hideUnnecessaryShowMoreButtons();
+
+    // Disable video controls
+    const videos = document.querySelectorAll('.project-video');
+    videos.forEach(video => {
+        video.controls = false;
+        video.setAttribute('controls', 'false');
+        video.removeAttribute('controls');
+    });
 
     // Email copy functionality
     const emailCopyButtons = document.querySelectorAll('.email-copy');

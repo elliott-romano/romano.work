@@ -6,11 +6,12 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'DM Sans', Arial, sans-serif;
     background-color: #f5f5f5;
     color: #000000;
     line-height: 1.4;
-    font-size: 16px;
+    font-size: 14px;
+    font-weight: 400;
 }
 
 /* Page Load Animation */
@@ -89,9 +90,10 @@ body {
 }
 
 .nav-link {
+    font-family: 'DM Mono', monospace;
     color: #666;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
     padding: 4px 8px;
     border-radius: 4px;
@@ -110,7 +112,8 @@ body {
 }
 
 .site-title {
-    font-size: 16px;
+    font-family: 'DM Mono', monospace;
+    font-size: 14px;
     font-weight: 400;
     color: #000000;
     letter-spacing: -0.5px;
@@ -159,9 +162,33 @@ body {
     margin-bottom: 16px;
 }
 
+.bio-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    align-items: start;
+}
+
+.bio-left {
+    display: flex;
+    align-items: flex-start;
+}
+
+.bio-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 14px;
+    font-weight: 400;
+    color: #000000;
+    margin: 0;
+}
+
+.bio-right {
+    display: flex;
+    align-items: flex-start;
+}
 
 .bio-text {
-    font-size: 16px;
+    font-size: 14px;
     color: #000000;
     margin-bottom: 0;
     line-height: 1.5;
@@ -186,8 +213,9 @@ body {
 }
 
 .selected-projects {
+    font-family: 'DM Mono', monospace;
     color: #000000;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
 }
 
@@ -205,6 +233,7 @@ body {
 }
 
 .filter-link {
+    font-family: 'DM Mono', monospace;
     color: #000000;
     text-decoration: none;
     font-size: 14px;
@@ -231,9 +260,9 @@ body {
     gap: 16px;
 }
 
-/* Project Section */
-.project-section {
-    width: 100%;
+/* Add spacing after last project section */
+.projects-section {
+    padding-bottom: 200px;
 }
 
 .project-card {
@@ -243,7 +272,7 @@ body {
     margin-bottom: 16px;
     border-radius: 8px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 2fr;
     gap: 16px;
     align-items: start;
 }
@@ -255,6 +284,19 @@ body {
     gap: 8px;
 }
 
+/* Project Center Column */
+.project-center {
+    display: flex;
+    flex-direction: column;
+}
+
+.project-tags-text {
+    font-family: 'DM Mono', monospace;
+    font-size: 14px;
+    color: #000000;
+    line-height: 1.4;
+}
+
 .project-year {
     color: #666;
     font-size: 14px;
@@ -264,11 +306,13 @@ body {
 }
 
 .project-title {
-    font-size: 16px;
+    font-family: 'DM Mono', monospace;
+    font-size: 14px;
     font-weight: 400;
     color: #000000;
     margin-bottom: 0;
     line-height: 1.2;
+    text-decoration: underline;
 }
 
 .sticky-card {
@@ -285,7 +329,7 @@ body {
 
 .description-text {
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
@@ -340,7 +384,7 @@ body {
 
 .project-description {
     color: #000000;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.5;
     margin-bottom: 0;
 }
@@ -354,6 +398,7 @@ body {
 /* Project Media */
 .project-media {
     display: flex;
+    flex-direction: row;
     gap: 16px;
     width: 100%;
     align-items: flex-start;
@@ -449,14 +494,66 @@ body {
     display: none !important;
 }
 
+/* Additional Safari control hiding */
+.project-video::-webkit-media-controls-overlay-play-button {
+    display: none !important;
+}
+
+.project-video::-webkit-media-controls-enclosure {
+    display: none !important;
+}
+
+.project-video::-webkit-media-controls-return-to-realtime-button {
+    display: none !important;
+}
+
+.project-video::-webkit-media-controls-rewind-button {
+    display: none !important;
+}
+
+.project-video::-webkit-media-controls-toggle-closed-captions-button {
+    display: none !important;
+}
+
+/* Force hide all media controls */
+.project-video {
+    -webkit-media-controls: none !important;
+    -webkit-media-controls-panel: none !important;
+    -webkit-media-controls-play-button: none !important;
+    -webkit-media-controls-volume-slider: none !important;
+    -webkit-media-controls-mute-button: none !important;
+    -webkit-media-controls-timeline: none !important;
+    -webkit-media-controls-current-time-display: none !important;
+    -webkit-media-controls-time-remaining-display: none !important;
+    -webkit-media-controls-fullscreen-button: none !important;
+    /* Additional aggressive hiding */
+    pointer-events: none !important;
+}
+
+/* Re-enable pointer events for the video element itself */
+.project-video::-webkit-media-controls-start-playback-button {
+    pointer-events: auto !important;
+}
+
 .project-video::-webkit-media-controls-fullscreen-button {
     display: none !important;
 }
 
-/* Specific fix for Instrument project only */
-.projects-list .project-section:nth-child(1) .media-container.media-left,
-.projects-list .project-section:nth-child(1) .media-container.media-right {
-    height: 400px;
+/* Specific fix for Various Flora project - both videos fill containers */
+.projects-list .project-section:nth-child(6) .media-container.media-left {
+    height: auto;
+}
+
+.projects-list .project-section:nth-child(6) .media-container.media-left .project-video {
+    object-fit: cover;
+}
+
+.projects-list .project-section:nth-child(6) .media-container.media-right {
+    height: auto;
+}
+
+.projects-list .project-section:nth-child(6) .media-container.media-right .project-video {
+    object-fit: cover;
 }
 
 /* Info Page Styles */
@@ -490,7 +587,7 @@ body {
 }
 
 .info-section-heading {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
     color: #000000;
     margin-bottom: 16px;
@@ -502,7 +599,7 @@ body {
     color: #000000;
     line-height: 1.5;
     margin-bottom: 12px;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .profile-content p strong {
@@ -522,7 +619,7 @@ body {
 
 .image-caption {
     text-align: left;
-    font-size: 16px;
+    font-size: 14px;
     color: #000000;
     margin-top: 8px;
     font-style: italic;
@@ -547,7 +644,7 @@ body {
     color: #000000;
     font-family: 'IBM Plex Mono', monospace;
     font-weight: 700;
-    font-size: 16px;
+    font-size: 14x;
     transition: all 0.2s ease;
 }
 
@@ -570,7 +667,7 @@ body {
     color: #000000;
     font-family: 'IBM Plex Mono', monospace;
     font-weight: 700;
-    font-size: 16px;
+    font-size: 14px;
     cursor: pointer;
     transition: all 0.2s ease;
     position: relative;
@@ -600,7 +697,7 @@ body {
 }
 
 .company-name {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 700;
     color: #000000;
     margin: 0;
@@ -609,13 +706,13 @@ body {
 
 .location {
     color: #000000;
-    font-size: 16px;
+    font-size: 14px;
     font-style: italic;
     margin-bottom: 4px;
 }
 
 .role {
-    font-size: 16px;
+    font-size: 14px;
     color: #000000;
     margin-bottom: 8px;
 }
@@ -623,13 +720,13 @@ body {
 .description {
     color: #000000;
     line-height: 1.5;
-    font-size: 16px;
+    font-size: 14px;
     margin: 0;
 }
 
 /* Past Heading */
 .past-heading {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
     color: #000000;
     margin: 16px 0 16px 0;
@@ -672,12 +769,12 @@ body {
     font-weight: 700;
     color: #000000;
     margin-bottom: 4px;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .school {
     color: #000000;
-    font-size: 16px;
+    font-size: 14px;
     margin-bottom: 2px;
 }
 
@@ -694,19 +791,19 @@ body {
     font-weight: 700;
     color: #000000;
     margin-bottom: 8px;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .courses {
     color: #000000;
-    font-size: 16px;
+    font-size: 14px;
     margin-bottom: 2px;
 }
 
 /* Skills Card */
 .skill-item {
     color: #000000;
-    font-size: 16px;
+    font-size: 14px;
     margin-bottom: 4px;
 }
 
@@ -717,7 +814,7 @@ body {
 /* Software Card */
 .software-item {
     color: #000000;
-    font-size: 16px;
+    font-size: 14px;
     margin-bottom: 4px;
 }
 
@@ -763,12 +860,12 @@ body {
 
 .projects-list.grid-view .project-media {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 16px;
 }
 
 .projects-list.grid-view .media-container {
-    width: 100%;
+    width: 50%;
 }
 
 /* Footer */
@@ -796,7 +893,7 @@ body {
 .nav-arrow {
     color: #666;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 14px;
     transition: color 0.2s ease;
 }
 
@@ -856,6 +953,24 @@ body {
         justify-content: center;
     }
     
+    /* Reorder navigation elements on mobile */
+    .nav-container {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .nav-center {
+        order: 1; /* Title first */
+    }
+    
+    .nav-left {
+        order: 2; /* Buttons second */
+    }
+    
+    .nav-right {
+        order: 3; /* Right nav last (empty on info page) */
+    }
+    
     .main-content {
         padding: 16px;
     }
@@ -893,6 +1008,17 @@ body {
     
     .media-container.media-left,
     .media-container.media-right {
+        width: 100%;
+    }
+    
+    .bio-card {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 16px !important;
+    }
+    
+    .bio-left,
+    .bio-right {
         width: 100%;
     }
     
@@ -935,11 +1061,11 @@ body {
 
 @media (max-width: 480px) {
     .site-title {
-        font-size: 24px;
+        font-size: 14px;
     }
     
     .project-title {
-        font-size: 20px;
+        font-size: 14px;
     }
     
     .media-container {

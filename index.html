@@ -11,7 +11,8 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Marquee -->
@@ -39,11 +40,16 @@
     <main class="main-content fade-in">
         <!-- Bio Section -->
         <section class="bio-section fade-in-delay-1">
-            <div class="info-card">
-                <p class="bio-text">
-                    Elliott [b. 1989] is a graphic designer/educator specializing in product, motion, & interactive design projects. His studio and research practice investigates the design of software and expressive tools that make people better at what they do - or reveal something totally new, often in real-time. 
-                    He holds an masters degree from Rhode Island School and based in the pacific northwest.
-                </p>
+            <div class="info-card bio-card">
+                <div class="bio-left">
+                    <h3 class="bio-label">Bio</h3>
+                </div>
+                <div class="bio-right">
+                    <p class="bio-text">
+                        Elliott [b. 1989] is a graphic designer/educator specializing in product, motion, & interactive design projects. His studio and research practice investigates the design of software and expressive tools that make people better at what they do - or reveal something totally new, often in real-time. 
+                        He holds an masters degree from Rhode Island School and based in the pacific northwest.
+                    </p>
+                </div>
             </div>
             <div class="filter-section">
                 <div class="filter-bar fade-in-delay-2">
@@ -51,7 +57,6 @@
                         <span class="selected-projects">Selected Projects</span>
                     </div>
                     <div class="filter-right">
-                        <span class="filter-label">filter</span>
                         <a href="#" class="filter-link active">All</a>
                         <a href="#" class="filter-link">Product</a>
                         <a href="#" class="filter-link">Print</a>
@@ -70,12 +75,10 @@
                 <article class="project-section">
                     <div class="project-card sticky-card">
                         <div class="project-left">
-                            <div class="project-year">2025</div>
-                            <h2 class="project-title">Instrument MFA Thesis</h2>
-                            <div class="project-tags">
-                                <span class="tag">Print Design</span>
-                                <span class="tag">Research</span>
-                            </div>
+                            <h2 class="project-title">Instrument MFA Thesis (2025)</h2>
+                        </div>
+                        <div class="project-center">
+                            <div class="project-tags-text">Print, Research</div>
                         </div>
                         <div class="project-right">
                             <p class="project-description">
@@ -95,7 +98,7 @@
                             <img src="assets/index/instrument/instrument_book.png" alt="Instrument Book" class="project-image">
                         </div>
                         <div class="media-container media-right">
-                            <video class="project-video" autoplay muted loop playsinline controls="false" controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture>
+                            <video class="project-video" autoplay muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture>
                                 <source src="assets/index/instrument/book-square 5.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
@@ -107,12 +110,10 @@
                 <article class="project-section">
                     <div class="project-card sticky-card">
                         <div class="project-left">
-                            <div class="project-year">2025</div>
-                            <h2 class="project-title">Docker Tag Mutability</h2>
-                            <div class="project-tags">
-                                <span class="tag">Product Design</span>
-                                <span class="tag">UX</span>
-                            </div>
+                            <h2 class="project-title">Docker Tag Mutability (2025)</h2>
+                        </div>
+                        <div class="project-center">
+                            <div class="project-tags-text">Product</div>
                         </div>
                         <div class="project-right">
                             <p class="project-description">
@@ -128,13 +129,13 @@
                     </div>
                     <div class="project-media">
                         <div class="media-container media-left">
-                            <video class="project-video" autoplay muted loop playsinline controls="false" controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture>
+                            <video class="project-video" autoplay muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture>
                                 <source src="assets/index/docker/03.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                         </div>
                         <div class="media-container media-right">
-                            <video class="project-video" autoplay muted loop playsinline controls="false" controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture>
+                            <video class="project-video" autoplay muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture>
                                 <source src="assets/index/docker/gordonOverview.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
@@ -146,26 +147,27 @@
                 <article class="project-section">
                     <div class="project-card sticky-card">
                         <div class="project-left">
-                            <div class="project-year">2024</div>
-                            <h2 class="project-title">CTC Visual Identity</h2>
-                            <div class="project-tags">
-                                <span class="tag">Motion</span>
-                                <span class="tag">Typography</span>
-                            </div>
+                            <h2 class="project-title">CTC Visual Identity (2024)</h2>
+                        </div>
+                        <div class="project-center">
+                            <div class="project-tags-text">Motion</div>
                         </div>
                         <div class="project-right">
                             <p class="project-description">
-                                I designed the visual identity for the RISD CTC Department (Computation, Technology & Culture), a new program and department focused on digital artistic and design practice through the lens of computer science.
+                                <span class="description-text">I designed the visual identity for the RISD CTC Department (Computation, Technology & Culture), a new program and department focused on digital artistic and design practice through the lens of computer science.</span>
+                                <span class="description-more hidden"> The identity system includes logo design, typography, color palette, and motion graphics that reflect the department's innovative approach to merging technology and creative practice.</span>
+                                <button class="show-more-btn" onclick="toggleShowMore(this)">show more</button>
+                            </p>
                         </div>
                     </div>
                     <div class="project-media">
                         <div class="media-container media-left">
-                            <video class="project-video" autoplay muted loop playsinline controls="false" controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture>
+                            <video class="project-video" autoplay muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture>
                                 <source src="assets/index/ctc/ctcEx.mov" type="video/mp4">
                             </video>
                         </div>
                         <div class="media-container media-right">
-                            <video class="project-video" autoplay muted loop playsinline controls="false" controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture>
+                            <video class="project-video" autoplay muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture>
                                 <source src="assets/index/ctc/social1920.mp4" type="video/mp4">
                             </video>
                         </div>
@@ -176,27 +178,27 @@
                 <article class="project-section">
                     <div class="project-card sticky-card">
                         <div class="project-left">
-                            <div class="project-year">2024</div>
-                            <h2 class="project-title">Chladni Sans</h2>
-                            <div class="project-tags">
-                                <span class="tag">Identity</span>
-                                <span class="tag">Branding</span>
-                            </div>
+                            <h2 class="project-title">Chladni Sans (2024)</h2>
+                        </div>
+                        <div class="project-center">
+                            <div class="project-tags-text">Identity</div>
                         </div>
                         <div class="project-right">
                             <p class="project-description">
-                                Chladni Sans is a video-based typeface inspired by the cymatic patterns created by Chladni Plates. Each letterform was recorded in sand on a vibrating plate, creating a unique and dynamic transformations of the letterforms as the plate vibrates. The intent of this typeface was to create an expressive tool for visually representing sound.
+                                <span class="description-text">Chladni Sans is a video-based typeface inspired by the cymatic patterns created by Chladni Plates. Each letterform was recorded in sand on a vibrating plate, creating a unique and dynamic transformations of the letterforms as the plate vibrates. The intent of this typeface was to create an expressive tool for visually representing sound.</span>
+                                <span class="description-more hidden"> The typeface explores the intersection of sound, vibration, and visual form, creating a unique typographic system that responds to audio input and generates dynamic letterforms.</span>
+                                <button class="show-more-btn" onclick="toggleShowMore(this)">show more</button>
                             </p>
                         </div>
                     </div>
                     <div class="project-media">
                         <div class="media-container media-left">
-                            <video class="project-video" autoplay muted loop playsinline controls="false" controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture>
+                            <video class="project-video" autoplay muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture>
                                 <source src="assets/index/chladni/00Book.mov" type="video/mp4">
                             </video>
                         </div>
                         <div class="media-container media-right">
-                            <video class="project-video" autoplay muted loop playsinline controls="false" controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture>
+                            <video class="project-video" autoplay muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture>
                                 <source src="assets/index/chladni/01_chladniDemo.mov" type="video/mp4">
                             </video>
                         </div>
@@ -207,29 +209,27 @@
                 <article class="project-section">
                     <div class="project-card sticky-card">
                         <div class="project-left">
-                            <div class="project-year">2024</div>
-                            <h2 class="project-title">DigitalOcean Product Onboarding</h2>
-                            <div class="project-tags">
-                                <span class="tag">Product Design</span>
-                                <span class="tag">UX</span>
-                            </div>
+                            <h2 class="project-title">DigitalOcean Product Onboarding (2024)</h2>
+                        </div>
+                        <div class="project-center">
+                            <div class="project-tags-text">Product</div>
                         </div>
                         <div class="project-right">
                             <p class="project-description">
-                                Designed and implemented a comprehensive onboarding experience for DigitalOcean's product suite, 
-                                helping new users understand and navigate the platform's core services. The onboarding flow 
-                                guides users through key features while maintaining engagement and reducing time-to-value.
+                                <span class="description-text">Designed and implemented a comprehensive onboarding experience for DigitalOcean's product suite, helping new users understand and navigate the platform's core services. The onboarding flow guides users through key features while maintaining engagement and reducing time-to-value.</span>
+                                <span class="description-more hidden"> The project involved user research, wireframing, prototyping, and iterative testing to create an intuitive experience that helps developers quickly get started with DigitalOcean's cloud infrastructure services.</span>
+                                <button class="show-more-btn" onclick="toggleShowMore(this)">show more</button>
                             </p>
                         </div>
                     </div>
                     <div class="project-media">
                         <div class="media-container media-left">
-                            <video class="project-video" autoplay muted loop playsinline controls="false" controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture>
+                            <video class="project-video" autoplay muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture>
                                 <source src="assets/index/digitalocean/reel.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="media-container media-right">
-                            <video class="project-video" autoplay muted loop playsinline controls="false" controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture>
+                            <video class="project-video" autoplay muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture>
                                 <source src="assets/index/digitalocean/zoom 2.mp4" type="video/mp4">
                             </video>
                         </div>
@@ -240,28 +240,57 @@
                 <article class="project-section">
                     <div class="project-card sticky-card">
                         <div class="project-left">
-                            <div class="project-year">2025</div>
-                            <h2 class="project-title">Various Flora</h2>
-                            <div class="project-tags">
-                                <span class="tag">Motion</span>
-                                <span class="tag">Research</span>
-                            </div>
+                            <h2 class="project-title">Various Flora (2025)</h2>
+                        </div>
+                        <div class="project-center">
+                            <div class="project-tags-text">Motion, Research</div>
                         </div>
                         <div class="project-right">
                             <p class="project-description">
-                                Various Flora was a public exhibition at the RISD Museum in Providence, RI. The exhibition featured a collection of Machine-Learning generated flora trained from the museum's vast collection of botanical prints. Each piece explored the intersection of traditional botanical illustration and contemporary AI-generated imagery, creating hybrid forms that question the boundaries between natural and artificial representation.
+                                <span class="description-text">Various Flora was a public exhibition at the RISD Museum in Providence, RI. The exhibition featured a collection of Machine-Learning generated flora trained from the museum's vast collection of botanical prints. Each piece explored the intersection of traditional botanical illustration and contemporary AI-generated imagery, creating hybrid forms that question the boundaries between natural and artificial representation.</span>
+                                <span class="description-more hidden"> The exhibition included interactive installations, printed works, and digital displays that demonstrated the potential of AI as a creative tool in botanical art and scientific visualization.</span>
+                                <button class="show-more-btn" onclick="toggleShowMore(this)">show more</button>
                             </p>
                         </div>
                     </div>
                     <div class="project-media">
                         <div class="media-container media-left">
-                            <video class="project-video" autoplay muted loop playsinline controls="false" controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture>
+                            <video class="project-video" autoplay muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture>
                                 <source src="assets/index/variousFlora/00.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="media-container media-right">
-                            <video class="project-video" autoplay muted loop playsinline controls="false" controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture>
-                                <source src="assets/index/variousFlora/01.mov" type="video/mp4">
+                            <video class="project-video" autoplay muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture>
+                                <source src="assets/index/variousFlora/01.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 7 - Cellular Autonomies -->
+                <article class="project-section">
+                    <div class="project-card sticky-card">
+                        <div class="project-left">
+                            <h2 class="project-title">Cellular Autonomies (2024)</h2>
+                        </div>
+                        <div class="project-center">
+                            <div class="project-tags-text">Print</div>
+                        </div>
+                        <div class="project-right">
+                            <p class="project-description">
+                                <span class="description-text">Cellular Autonomies is a study into natural systems as a means of generating improvised procedural form. Using custom software based on Stephen Wolfram's original Cellular Autonoma algorithms as a means of generative pattern making, a series of monoprints further abstract the gesture of unpredicatble growth from one element to the next. The collection exists as a series of large scale monoprints and limited edition risograph booklets.</span>
+                                <span class="description-more hidden"> The project explores the intersection of computational algorithms and traditional printmaking techniques, creating unique visual patterns that emerge from simple rules and complex interactions.</span>
+                                <button class="show-more-btn" onclick="toggleShowMore(this)">show more</button>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="project-media">
+                        <div class="media-container media-left">
+                            <img src="assets/index/cellularAutonomy/cellularAutonomies.JPG" alt="Cellular Autonomies" class="project-image">
+                        </div>
+                        <div class="media-container media-right">
+                            <video class="project-video" autoplay muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture>
+                                <source src="assets/index/cellularAutonomy/cellularAutonomies.mp4" type="video/mp4">
                             </video>
                         </div>
                     </div>
