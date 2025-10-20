@@ -5,8 +5,12 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: 'DM Sans', Arial, sans-serif;
+    font-family: 'Instrument Sans', Arial, sans-serif;
     background-color: #f5f5f5;
     color: #000000;
     line-height: 1.4;
@@ -90,7 +94,7 @@ body {
 }
 
 .nav-link {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Instrument Sans', Arial, sans-serif;
     color: #666;
     text-decoration: none;
     font-size: 14px;
@@ -112,7 +116,7 @@ body {
 }
 
 .site-title {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Instrument Sans', Arial, sans-serif;
     font-size: 14px;
     font-weight: 400;
     color: #000000;
@@ -154,7 +158,7 @@ body {
 .main-content {
     max-width: none;
     margin: 0;
-    padding: 16px;
+    padding: 48px 15% 0 15%;
 }
 
 /* Bio Section */
@@ -213,7 +217,7 @@ body {
 }
 
 .selected-projects {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Instrument Sans', Arial, sans-serif;
     color: #000000;
     font-size: 14px;
     font-weight: bold;
@@ -233,7 +237,7 @@ body {
 }
 
 .filter-link {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Instrument Sans', Arial, sans-serif;
     color: #000000;
     text-decoration: none;
     font-size: 14px;
@@ -246,7 +250,7 @@ body {
 }
 
 .filter-link:hover:not(.active) {
-    font-weight: 500;
+    font-weight: 400;
 }
 
 /* Projects Section */
@@ -339,7 +343,7 @@ body {
 }
 
 .description-more.hidden {
-    display: none;
+    display: none !important;
 }
 
 .show-more-btn {
@@ -588,7 +592,7 @@ body {
 
 .info-section-heading {
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 400;
     color: #000000;
     margin-bottom: 16px;
     margin-top: 0;
@@ -603,7 +607,7 @@ body {
 }
 
 .profile-content p strong {
-    font-weight: 700;
+    font-weight: 400;
 }
 
 .profile-image {
@@ -627,29 +631,19 @@ body {
 
 /* Social Links */
 .social-links {
-    margin-top: 20px;
     display: flex;
-    flex-direction: column;
-    gap: 12px;
+    gap: 16px;
 }
 
 .social-link {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 16px;
-    background-color: #00FF2F;
-    border-radius: 4px;
-    text-decoration: none;
+    font-family: 'Instrument Sans', Arial, sans-serif;
+    font-size: 14px;
     color: #000000;
-    font-family: 'IBM Plex Mono', monospace;
-    font-weight: 700;
-    font-size: 14x;
-    transition: all 0.2s ease;
+    text-decoration: underline;
 }
 
 .social-link:hover {
-    background-color: #00e629;
+    text-decoration: underline;
 }
 
 .link-icon {
@@ -657,31 +651,21 @@ body {
 }
 
 .email-copy {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 16px;
-    background-color: #00FF2F;
-    border-radius: 4px;
-    border: none;
-    color: #000000;
-    font-family: 'IBM Plex Mono', monospace;
-    font-weight: 700;
+    font-family: 'Instrument Sans', Arial, sans-serif;
     font-size: 14px;
+    color: #000000;
+    text-decoration: underline;
+    background: none;
+    border: none;
     cursor: pointer;
-    transition: all 0.2s ease;
-    position: relative;
-    z-index: 10;
-    pointer-events: auto;
 }
 
 .email-copy:hover {
-    background-color: #00e629;
+    text-decoration: underline;
 }
 
 .email-copy:active {
-    background-color: #00cc00;
-    transform: scale(0.98);
+    text-decoration: underline;
 }
 
 .copy-text {
@@ -698,7 +682,7 @@ body {
 
 .company-name {
     font-size: 14px;
-    font-weight: 700;
+    font-weight: 400;
     color: #000000;
     margin: 0;
     margin-bottom: 4px;
@@ -727,7 +711,7 @@ body {
 /* Past Heading */
 .past-heading {
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 400;
     color: #000000;
     margin: 16px 0 16px 0;
     padding: 0;
@@ -743,7 +727,7 @@ body {
 }
 
 .past-experience-item .company-name {
-    font-weight: 700;
+    font-weight: 400;
     margin-bottom: 4px;
 }
 
@@ -766,7 +750,7 @@ body {
 }
 
 .degree {
-    font-weight: 700;
+    font-weight: 400;
     color: #000000;
     margin-bottom: 4px;
     font-size: 14px;
@@ -788,7 +772,7 @@ body {
 }
 
 .teaching-role {
-    font-weight: 700;
+    font-weight: 400;
     color: #000000;
     margin-bottom: 8px;
     font-size: 14px;
@@ -868,20 +852,467 @@ body {
     width: 50%;
 }
 
+/* New Index Design Styles */
+.header-section {
+    margin-bottom: 48px;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.logo {
+    align-self: flex-start;
+}
+
+/* Sticky Navigation */
+.sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: transparent;
+    padding: 20px 15% 0 15%;
+    mix-blend-mode: difference;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 16px;
+    position: relative;
+    z-index: 1002;
+}
+
+.nav-title {
+    font-family: 'Instrument Sans', Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #000000;
+    opacity: 1;
+    pointer-events: none;
+    position: absolute;
+    left: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.nav-title.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.hidden {
+    display: none !important;
+}
+
+.logo-circle {
+    width: 40px;
+    height: 40px;
+    background-color: #E100FF;
+    border-radius: 50%;
+    position: relative;
+    z-index: 1001;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.logo-circle:hover {
+    transform: scale(1.1);
+}
+
+.intro-text {
+    width: 100%;
+}
+
+.intro-paragraph {
+    font-family: 'Instrument Sans', Arial, sans-serif;
+    font-size: 24px;
+    color: #000000;
+    line-height: 1.5;
+    margin: 0 0 16px 0;
+}
+
+.underlined {
+    text-decoration: underline;
+}
+
+.profile-link {
+    font-family: 'Instrument Sans', Arial, sans-serif;
+    font-size: 14px;
+    color: #000000;
+    text-decoration: none;
+}
+
+.profile-link:hover {
+    text-decoration: underline;
+}
+
+.experience-section {
+    margin-bottom: 48px;
+}
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+}
+
+.section-heading {
+    font-family: 'Instrument Sans', Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #000000;
+    margin: 0 0 24px 0;
+}
+
+.experience-item,
+.education-item {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.year {
+    font-family: 'Instrument Sans', Arial, sans-serif;
+    font-size: 14px;
+    color: #000000;
+    font-weight: 400;
+    min-width: 80px;
+}
+
+.role,
+.degree {
+    font-family: 'Instrument Sans', Arial, sans-serif;
+    font-size: 14px;
+    color: #000000;
+    line-height: 1.4;
+}
+
+.projects-section {
+    margin-bottom: 24px;
+}
+
+.projects-header {
+    margin-bottom: 32px;
+}
+
+.projects-toggle {
+    display: flex;
+    gap: 24px;
+    border-bottom: 1px solid #000000;
+    padding-bottom: 8px;
+}
+
+.toggle-option {
+    font-family: 'Instrument Sans', Arial, sans-serif;
+    font-size: 14px;
+    color: #999999;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px 0;
+    font-weight: 400;
+    transition: all 0.2s ease;
+    opacity: 0.6;
+}
+
+.toggle-option:hover {
+    color: #666666;
+    opacity: 0.8;
+}
+
+.toggle-option.active {
+    color: #000000;
+    font-weight: 600;
+    opacity: 1;
+    border-bottom: 2px solid #000000;
+    padding-bottom: 6px;
+}
+
+
+.hidden {
+    display: none !important;
+}
+
+.coming-soon {
+    font-family: 'Instrument Sans', Arial, sans-serif;
+    font-size: 14px;
+    color: #666666;
+    text-align: center;
+    padding: 48px 0;
+}
+
+.projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+.project-item {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.project-visual {
+    width: 100%;
+}
+
+.project-screenshot {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    background-color: #f0f0f0;
+    object-fit: cover;
+}
+
+.project-screenshot video {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.video-container-centered {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background-color: #000000;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: none;
+    outline: none;
+}
+
+.video-container-centered .project-screenshot {
+    width: auto;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border: none;
+    outline: none;
+    background-color: #000000;
+}
+
+.project-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 32px;
+    align-items: start;
+}
+
+.project-name {
+    font-family: 'Instrument Sans', Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #000000;
+    margin: 0 0 16px 0;
+}
+
+.project-description {
+    font-family: 'Instrument Sans', Arial, sans-serif;
+    font-size: 14px;
+    color: #000000;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.social-links {
+    display: flex;
+    gap: 16px;
+}
+
+.social-link {
+    font-family: 'Instrument Sans', Arial, sans-serif;
+    font-size: 14px;
+    color: #000000;
+    text-decoration: underline;
+}
+
+.social-link:hover {
+    text-decoration: underline;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .experience-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+    
+    .project-item {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .project-content {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .project-visual {
+        width: 100%;
+    }
+    
+    .footer {
+        padding: 32px 16px 32px 16px;
+    }
+    
+    .sticky-nav {
+        padding: 20px 16px 0 16px;
+    }
+}
+
+/* Case Study Template Styles */
+.case-study-header {
+    margin-bottom: 32px;
+}
+
+.project-info-card {
+    background-color: #00FF2F;
+    border-radius: 8px;
+    padding: 24px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.case-study-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 24px;
+    font-weight: 400;
+    color: #000000;
+    margin: 0 0 16px 0;
+    text-decoration: underline;
+}
+
+.project-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.project-year {
+    font-family: 'DM Mono', monospace;
+    font-size: 14px;
+    color: #000000;
+    font-weight: 400;
+}
+
+.project-tags {
+    font-family: 'DM Mono', monospace;
+    font-size: 14px;
+    color: #000000;
+    font-weight: 400;
+}
+
+.project-overview {
+    font-family: 'Instrument Sans', Arial, sans-serif;
+    font-size: 14px;
+    color: #000000;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.case-study-content {
+    margin-bottom: 32px;
+}
+
+.content-section {
+    margin-bottom: 48px;
+}
+
+.section-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 14px;
+    font-weight: 400;
+    color: #000000;
+    margin: 0 0 16px 0;
+    text-decoration: underline;
+}
+
+.section-text {
+    font-family: 'Instrument Sans', Arial, sans-serif;
+    font-size: 14px;
+    color: #000000;
+    line-height: 1.6;
+    margin: 0 0 16px 0;
+}
+
+.media-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.gallery-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.gallery-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    background-color: #000000;
+}
+
+.gallery-video {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    background-color: #000000;
+}
+
+.media-caption {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: #666666;
+    margin: 0;
+    font-style: italic;
+}
+
+/* Mobile responsive for case study */
+@media (max-width: 768px) {
+    .project-info-card {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .case-study-title {
+        font-size: 20px;
+    }
+    
+    .section-title {
+        font-size: 16px;
+    }
+}
+
 /* Footer */
 .footer {
-    background-color: #ffffff;
-    border-top: 1px solid #e0e0e0;
-    padding: 20px 0;
+    padding: 48px 15% 48px 15%;
+    background-color: #f5f5f5;
 }
 
 .footer-content {
-    max-width: none;
-    margin: 0;
-    padding: 0 16px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 24px 0;
+    border-top: 1px solid #e0e0e0;
 }
 
 .pagination {
@@ -925,10 +1356,10 @@ body {
 }
 
 .copyright {
-    color: #666;
+    font-family: 'Instrument Sans', Arial, sans-serif;
     font-size: 14px;
-    font-family: 'IBM Plex Mono', monospace;
     font-weight: 400;
+    color: #000000;
 }
 
 /* Responsive Design */
@@ -972,7 +1403,7 @@ body {
     }
     
     .main-content {
-        padding: 16px;
+        padding: 32px 16px 0 16px;
     }
     
     .info-card {
@@ -1052,11 +1483,6 @@ body {
         width: 100%;
     }
     
-    .footer-content {
-        flex-direction: column;
-        gap: 20px;
-        padding: 0 16px;
-    }
 }
 
 @media (max-width: 480px) {

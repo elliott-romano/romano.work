@@ -11,321 +11,210 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Marquee -->
-    <div class="marquee">
-        <div class="marquee-content">currently seeking full-time & contract opportunities</div>
-    </div>
-
     <!-- Sticky Navigation -->
     <nav class="sticky-nav">
-        <div class="nav-container">
-            <div class="nav-left">
-                <a href="index.html" class="nav-link active">Works</a>
-                <a href="info.html" class="nav-link">Info</a>
-            </div>
-            <div class="nav-center">
-                <h1 class="site-title">ELLIOTT ROMANO</h1>
-            </div>
-            <div class="nav-right">
-            </div>
+        <div class="nav-content">
+            <div class="logo-circle" onclick="scrollToTop()"></div>
         </div>
     </nav>
 
     <!-- Main Content -->
     <main class="main-content fade-in">
-        <!-- Bio Section -->
-        <section class="bio-section fade-in-delay-1">
-            <div class="info-card bio-card">
-                <div class="bio-left">
-                    <h3 class="bio-label">Bio</h3>
-                </div>
-                <div class="bio-right">
-                    <p class="bio-text">
-                        Elliott [b. 1989] is a graphic designer/educator specializing in product, motion, & interactive design projects. His studio and research practice investigates the design of software and expressive tools that make people better at what they do - or reveal something totally new, often in real-time. 
-                        He holds an masters degree from Rhode Island School and based in the pacific northwest.
+        <!-- Header Section -->
+        <section class="header-section fade-in-delay-1">
+            <div class="header-content">
+                <div class="intro-text">
+                    <p class="intro-paragraph">
+                        My name is Elliott Romano I design software and interactive tools.<br>
+                        I create <span class="underlined">visual systems</span> and <span class="underlined">interfaces</span> that help people understand, shape, and play with technology.
                     </p>
+                    <a href="info.html" class="profile-link">View full profile →</a>
                 </div>
             </div>
-            <div class="filter-section">
-                <div class="filter-bar fade-in-delay-2">
-                    <div class="filter-left">
-                        <span class="selected-projects">Selected Projects</span>
+        </section>
+
+        <!-- Experience & Education Section -->
+        <section class="experience-section fade-in-delay-2">
+            <div class="experience-grid">
+                <div class="experience-column">
+                    <h3 class="section-heading">Experience</h3>
+                    <div class="experience-item">
+                        <span class="year">2025</span>
+                        <span class="role">Docker Inc., Product Designer (contract)</span>
                     </div>
-                    <div class="filter-right">
-                        <a href="#" class="filter-link active">All</a>
-                        <a href="#" class="filter-link">Product</a>
-                        <a href="#" class="filter-link">Print</a>
-                        <a href="#" class="filter-link">Motion</a>
-                        <a href="#" class="filter-link">Identity</a>
-                        <a href="#" class="filter-link">Research</a>
+                    <div class="experience-item">
+                        <span class="year">2024-2025</span>
+                        <span class="role">RISD Museum, Digital Designer</span>
+                    </div>
+                    <div class="experience-item">
+                        <span class="year">2017-2022</span>
+                        <span class="role">DigitalOcean, Senior Product Designer</span>
+                    </div>
+                </div>
+                <div class="education-column">
+                    <h3 class="section-heading">Education</h3>
+                    <div class="education-item">
+                        <span class="year">2025</span>
+                        <span class="degree">MFA Graphic Design, Rhode Island School of Design</span>
+                    </div>
+                    <div class="education-item">
+                        <span class="year">2013</span>
+                        <span class="degree">BFA Photography, Rhode Island School of Design</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Projects Section -->
-        <section class="projects-section">
-            <div class="projects-list fade-in-delay-3">
-                <!-- Project 1 -->
-                <article class="project-section">
-                    <div class="project-card sticky-card">
-                        <div class="project-left">
-                            <h2 class="project-title">Instrument MFA Thesis (2025)</h2>
-                        </div>
-                        <div class="project-center">
-                            <div class="project-tags-text">Print, Research</div>
-                        </div>
-                        <div class="project-right">
-                            <p class="project-description">
-                                <span class="description-text">Instrument is the culmination of a three-year inquiry into what it means to design tools that perform. 
-                                It is part research project and part artist book. The thesis explores how real-time feedback systems, 
-                                both analog and digital, can function as graphic instruments: systems that generate visual and linguistic 
-                                output through performance. Through essays, interviews, and custom tools of my own design, the book frames 
-                                design as an instrumental practice that exists in the space between recording and live expression.</span>
-                                <span class="description-more hidden">Through essays, interviews, and custom tools of my own design, the book frames 
-                                design as an instrumental practice that exists in the space between recording and live expression.</span>
-                                <button class="show-more-btn" onclick="toggleShowMore(this)">show more</button>
-                            </p>
-                        </div>
+        <!-- Selected Projects Section -->
+        <section class="projects-section fade-in-delay-3">
+            <div class="projects-header">
+                <div class="projects-toggle">
+                    <button class="toggle-option active" data-tab="selected">Selected Projects</button>
+                    <button class="toggle-option" data-tab="cooler">Cooler Projects</button>
+                </div>
+            </div>
+            
+            <div class="projects-list" id="selected-projects">
+                <!-- Project 1 - Docker Tag Mutability -->
+                <article class="project-item">
+                    <div class="project-visual">
+                        <video class="project-screenshot" autoplay muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture>
+                            <source src="assets/index/docker/gordonOverview.mp4" type="video/mp4">
+                        </video>
                     </div>
-                    <div class="project-media">
-                        <div class="media-container media-left">
-                            <img src="assets/index/instrument/instrument_book.png" alt="Instrument Book" class="project-image">
-                        </div>
-                        <div class="media-container media-right">
-                            <video class="project-video" autoplay muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture>
-                                <source src="assets/index/instrument/book-square 5.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
+                    <div class="project-content">
+                        <h3 class="project-name">Docker Tag Mutability/Gordon</h3>
+                        <p class="project-description">
+                            I consulted with Docker Inc, to design and introduce new features for Dockerhub, a modern container registry system. The functionality I helped ship allows developers to programmatically manage their repositories, and interact with Gordon, Docker's primary AI agent to assist with new learning about new processes or automating mundane work, all of which make primary workflows feel lighter and easier.
+                        </p>
                     </div>
                 </article>
 
-                <!-- Project 2 -->
-                <article class="project-section">
-                    <div class="project-card sticky-card">
-                        <div class="project-left">
-                            <h2 class="project-title">Docker Tag Mutability (2025)</h2>
-                        </div>
-                        <div class="project-center">
-                            <div class="project-tags-text">Product</div>
-                        </div>
-                        <div class="project-right">
-                            <p class="project-description">
-                                <span class="description-text">Working with the Docker Product Team I designed and helped implement
-                                iterative updates to workflows in managing images Docker Hub, 
-                                the primary container registry used by developers and organizations worldwide.</span>
-                                <span class="description-more hidden">The feature introduced tag immutability controls, giving teams precise 
-                                control over how image tags are updated and preventing accidental
-                                overwrites that could disrupt builds or deployments.</span>
-                                <button class="show-more-btn" onclick="toggleShowMore(this)">show more</button>
-                            </p>
-                        </div>
+                <!-- Project 2 - DigitalOcean Product Onboarding -->
+                <article class="project-item">
+                    <div class="project-visual">
+                        <video class="project-screenshot" autoplay muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture>
+                            <source src="assets/index/digitalocean/reel.mp4" type="video/mp4">
+                        </video>
                     </div>
-                    <div class="project-media">
-                        <div class="media-container media-left">
-                            <video class="project-video" autoplay muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture>
-                                <source src="assets/index/docker/03.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                        <div class="media-container media-right">
-                            <video class="project-video" autoplay muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture>
-                                <source src="assets/index/docker/gordonOverview.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
+                    <div class="project-content">
+                        <h3 class="project-name">DigitalOcean Product Onboarding & Growth</h3>
+                        <p class="project-description">
+                            As a design lead on DigitalOceans Growth team, I led user research studies and design Initiatives that made using cloud infrastructure feel light and understandable for a previously underserved market - developers and makers with limited cloud experience. My work included the release of many measurable design and interface experiments that informed several iterative system-wide interface updates to the first time user experience of the DigitalOcean Platform.
+                        </p>
                     </div>
                 </article>
 
-                <!-- Project 3 -->
-                <article class="project-section">
-                    <div class="project-card sticky-card">
-                        <div class="project-left">
-                            <h2 class="project-title">CTC Visual Identity (2024)</h2>
-                        </div>
-                        <div class="project-center">
-                            <div class="project-tags-text">Motion</div>
-                        </div>
-                        <div class="project-right">
-                            <p class="project-description">
-                                <span class="description-text">I was contracted by the RISD CTC Department (Computation, Technology & Culture), to design a visual identity to help introduce the new department to the RISD community. As the newest academic program since 1996, the department is focused on digital and computational making in artistic and design practices.</span>
-                                <span class="description-more hidden"> The identity system includes a generative logo system, typography, and motion graphics that reflect the department's unique and historical relationship to rudimentary computational tools and the interconnectedness of hypermedia, and culture.</span>
-                                <button class="show-more-btn" onclick="toggleShowMore(this)">show more</button>
-                            </p>
+                <!-- Project 3 - RISD Museum Digital Guide -->
+                <article class="project-item">
+                    <div class="project-visual">
+                        <div class="video-container-centered">
+                            <img src="assets/index/risdMuseum/museum.gif" alt="RISD Museum Digital Guide" class="project-screenshot">
                         </div>
                     </div>
-                    <div class="project-media">
-                        <div class="media-container media-left">
-                            <video class="project-video" autoplay muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture>
-                                <source src="assets/index/ctc/ctcEx.mov" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="media-container media-right">
-                            <video class="project-video" autoplay muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture>
-                                <source src="assets/index/ctc/social1920.mp4" type="video/mp4">
-                            </video>
-                        </div>
+                    <div class="project-content">
+                        <h3 class="project-name">RISD Museum Digital Guide</h3>
+                        <p class="project-description">
+                            I had the opportunity to collaborate with museum curatorial and digital initiatives staff to conceptualize and design the primary digital visitor application for the RISD Museum which aimed to help visitors discover and navigate the challenging architectural footprint of the gallery spaces, as well as its vast collection of works and associated media.
+                        </p>
+                    </div>
+                </article>
+            </div>
+            
+            <div class="projects-list hidden" id="cooler-projects">
+                <!-- Project 1 - Instrument MFA Thesis -->
+                <article class="project-item">
+                    <div class="project-visual">
+                        <video class="project-screenshot" autoplay muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture>
+                            <source src="assets/index/instrument/book-square 5.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-name">Instrument MFA Thesis (2025)</h3>
+                        <p class="project-description">
+                            Instrument is a thesis project exploring the intersection of typography, technology, and human interaction. Through custom software and experimental printing techniques, this work investigates how digital tools can enhance rather than replace traditional design processes, creating new possibilities for visual communication.
+                        </p>
                     </div>
                 </article>
 
-                <!-- Project 4 -->
-                <article class="project-section">
-                    <div class="project-card sticky-card">
-                        <div class="project-left">
-                            <h2 class="project-title">Chladni Sans (2024)</h2>
-                        </div>
-                        <div class="project-center">
-                            <div class="project-tags-text">Identity</div>
-                        </div>
-                        <div class="project-right">
-                            <p class="project-description">
-                                <span class="description-text">Chladni Sans is a video-based typeface inspired by the cymatic patterns created by Chladni Plates. Each letterform was recorded in sand on a vibrating plate, creating a unique and dynamic transformations of the letterforms as the plate vibrates. The intent of this typeface was to create an expressive tool for visually representing sound.</span>
-                                <span class="description-more hidden"> The typeface explores the intersection of sound, vibration, and visual form, creating a unique typographic system that responds to audio input and generates dynamic letterforms.</span>
-                                <button class="show-more-btn" onclick="toggleShowMore(this)">show more</button>
-                            </p>
-                        </div>
+                <!-- Project 2 - CTC -->
+                <article class="project-item">
+                    <div class="project-visual">
+                        <video class="project-screenshot" autoplay muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture>
+                            <source src="assets/index/ctc/social1920.mp4" type="video/mp4">
+                        </video>
                     </div>
-                    <div class="project-media">
-                        <div class="media-container media-left">
-                            <video class="project-video" autoplay muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture>
-                                <source src="assets/index/chladni/00Book.mov" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="media-container media-right">
-                            <video class="project-video" autoplay muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture>
-                                <source src="assets/index/chladni/01_chladniDemo.mov" type="video/mp4">
-                            </video>
-                        </div>
+                    <div class="project-content">
+                        <h3 class="project-name">CTC (2024)</h3>
+                        <p class="project-description">
+                            CTC is a collaborative project exploring computational design methodologies in contemporary practice. This work combines algorithmic thinking with traditional design principles to create dynamic visual systems that respond to data and user interaction.
+                        </p>
                     </div>
                 </article>
 
-                <!-- Project 5 - DigitalOcean Product Onboarding -->
-                <article class="project-section">
-                    <div class="project-card sticky-card">
-                        <div class="project-left">
-                            <h2 class="project-title">DigitalOcean Product Onboarding (2024)</h2>
-                        </div>
-                        <div class="project-center">
-                            <div class="project-tags-text">Product</div>
-                        </div>
-                        <div class="project-right">
-                            <p class="project-description">
-                                <span class="description-text">Designed and implemented a comprehensive onboarding experience for DigitalOcean's product suite, helping new users understand and navigate the platform's core services. The onboarding flow guides users through key features while maintaining engagement and reducing time-to-value.</span>
-                                <span class="description-more hidden"> The project involved user research, wireframing, prototyping, and iterative testing to create an intuitive experience that helps developers quickly get started with DigitalOcean's cloud infrastructure services.</span>
-                                <button class="show-more-btn" onclick="toggleShowMore(this)">show more</button>
-                            </p>
-                        </div>
+                <!-- Project 3 - Various Flora -->
+                <article class="project-item">
+                    <div class="project-visual">
+                        <video class="project-screenshot" autoplay muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture>
+                            <source src="assets/index/variousFlora/00.mp4" type="video/mp4">
+                        </video>
                     </div>
-                    <div class="project-media">
-                        <div class="media-container media-left">
-                            <video class="project-video" autoplay muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture>
-                                <source src="assets/index/digitalocean/reel.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="media-container media-right">
-                            <video class="project-video" autoplay muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture>
-                                <source src="assets/index/digitalocean/zoom 2.mp4" type="video/mp4">
-                            </video>
-                        </div>
+                    <div class="project-content">
+                        <h3 class="project-name">Various Flora (2025)</h3>
+                        <p class="project-description">
+                            Various Flora was a public exhibition at the RISD Museum in Providence, RI. The exhibition featured a collection of Machine-Learning generated flora trained from the museum's vast collection of botanical prints. Each piece explored the intersection of traditional botanical illustration and contemporary AI-generated imagery, creating hybrid forms that question the boundaries between natural and artificial representation.
+                        </p>
                     </div>
                 </article>
 
-                <!-- Project 6 - Various Flora -->
-                <article class="project-section">
-                    <div class="project-card sticky-card">
-                        <div class="project-left">
-                            <h2 class="project-title">Various Flora (2025)</h2>
-                        </div>
-                        <div class="project-center">
-                            <div class="project-tags-text">Motion, Research</div>
-                        </div>
-                        <div class="project-right">
-                            <p class="project-description">
-                                <span class="description-text">Various Flora was a public exhibition at the RISD Museum in Providence, RI. The exhibition featured a collection of Machine-Learning generated flora trained from the museum's vast collection of botanical prints. Each piece explored the intersection of traditional botanical illustration and contemporary AI-generated imagery, creating hybrid forms that question the boundaries between natural and artificial representation.</span>
-                                <span class="description-more hidden"> The exhibition included interactive installations, printed works, and digital displays that demonstrated the potential of AI as a creative tool in botanical art and scientific visualization.</span>
-                                <button class="show-more-btn" onclick="toggleShowMore(this)">show more</button>
-                            </p>
-                        </div>
+                <!-- Project 4 - Cellular Autonomies -->
+                <article class="project-item">
+                    <div class="project-visual">
+                        <video class="project-screenshot" autoplay muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture>
+                            <source src="assets/index/cellularAutonomy/cellularAutonomies.mp4" type="video/mp4">
+                        </video>
                     </div>
-                    <div class="project-media">
-                        <div class="media-container media-left">
-                            <video class="project-video" autoplay muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture>
-                                <source src="assets/index/variousFlora/00.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="media-container media-right">
-                            <video class="project-video" autoplay muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture>
-                                <source src="assets/index/variousFlora/01.mp4" type="video/mp4">
-                            </video>
-                        </div>
+                    <div class="project-content">
+                        <h3 class="project-name">Cellular Autonomies (2024)</h3>
+                        <p class="project-description">
+                            Cellular Autonomies is a study into natural systems as a means of generating improvised procedural form. Using custom software based on Stephen Wolfram's original Cellular Autonoma algorithms as a means of generative pattern making, a series of monoprints further abstract the gesture of unpredicatble growth from one element to the next. The collection exists as a series of large scale monoprints and limited edition risograph booklets.
+                        </p>
                     </div>
                 </article>
 
-                <!-- Project 7 - Cellular Autonomies -->
-                <article class="project-section">
-                    <div class="project-card sticky-card">
-                        <div class="project-left">
-                            <h2 class="project-title">Cellular Autonomies (2024)</h2>
-                        </div>
-                        <div class="project-center">
-                            <div class="project-tags-text">Print</div>
-                        </div>
-                        <div class="project-right">
-                            <p class="project-description">
-                                <span class="description-text">Cellular Autonomies is a study into natural systems as a means of generating improvised procedural form. Using custom software based on Stephen Wolfram's original Cellular Autonoma algorithms as a means of generative pattern making, a series of monoprints further abstract the gesture of unpredicatble growth from one element to the next. The collection exists as a series of large scale monoprints and limited edition risograph booklets.</span>
-                                <span class="description-more hidden"> The project explores the intersection of computational algorithms and traditional printmaking techniques, creating unique visual patterns that emerge from simple rules and complex interactions.</span>
-                                <button class="show-more-btn" onclick="toggleShowMore(this)">show more</button>
-                            </p>
-                        </div>
+                <!-- Project 5 - LRAD -->
+                <article class="project-item">
+                    <div class="project-visual">
+                        <video class="project-screenshot" autoplay muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture>
+                            <source src="assets/index/LRAD/lrad_01.mp4" type="video/mp4">
+                        </video>
                     </div>
-                    <div class="project-media">
-                        <div class="media-container media-left">
-                            <img src="assets/index/cellularAutonomy/cellularAutonomies.JPG" alt="Cellular Autonomies" class="project-image">
-                        </div>
-                        <div class="media-container media-right">
-                            <video class="project-video" autoplay muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture>
-                                <source src="assets/index/cellularAutonomy/cellularAutonomies.mp4" type="video/mp4">
-                            </video>
-                        </div>
+                    <div class="project-content">
+                        <h3 class="project-name">LRAD (2024)</h3>
+                        <p class="project-description">
+                            LRAD was a research project into the use of sound and control, diving into the history and usage of Long-Range-Acoustic-Device (LRAD). The resulting print and digital publications and explores the visual and material language of "tactical sound" as the LRAD becomes a more ubiquitous in its use in policing and protest.
+                        </p>
                     </div>
                 </article>
 
-                <!-- Project 8 - LRAD -->
-                <article class="project-section">
-                    <div class="project-card sticky-card">
-                        <div class="project-left">
-                            <h2 class="project-title">LRAD (2025)</h2>
-                        </div>
-                        <div class="project-center">
-                            <div class="project-tags-text">Print, Motion, Research</div>
-                        </div>
-                        <div class="project-right">
-                            <p class="project-description">
-                                <span class="description-text">LRAD was a research project into the use of sound and control, diving into the history and usage of Long-Range-Acoustic-Device (LRAD). The resulting print and digital publications and explores the visual and material language of "tactical sound" as the LRAD becomes a more ubiquitous in its use in policing and protest.</span>
-                                <span class="description-more hidden"> The project examines the intersection of acoustic technology, surveillance, and social control, creating visual documentation and critical analysis of how sound is weaponized in contemporary society.</span>
-                                <button class="show-more-btn" onclick="toggleShowMore(this)">show more</button>
-                            </p>
-                        </div>
+                <!-- Project 6 - Chladni Sans -->
+                <article class="project-item">
+                    <div class="project-visual">
+                        <video class="project-screenshot" autoplay muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture>
+                            <source src="assets/index/chladni/00Book.mov" type="video/mp4">
+                        </video>
                     </div>
-                    <div class="project-media">
-                        <div class="media-container media-left">
-                            <video class="project-video" autoplay muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture>
-                                <source src="assets/index/LRAD/lrad_00.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="media-container media-right">
-                            <video class="project-video" autoplay muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture>
-                                <source src="assets/index/LRAD/lrad_01.mp4" type="video/mp4">
-                            </video>
-                        </div>
+                    <div class="project-content">
+                        <h3 class="project-name">Chladni Sans (2024)</h3>
+                        <p class="project-description">
+                            Chladni Sans is an experimental typeface that explores the intersection of sound, vibration, and visual form. Inspired by Chladni figures—patterns created by sound waves on vibrating plates—this typeface translates acoustic phenomena into letterforms, creating a unique visual language that bridges the gap between auditory and visual perception.
+                        </p>
                     </div>
                 </article>
-
             </div>
         </section>
     </main>
@@ -333,31 +222,15 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
-            <div class="last-updated">last updated on 10/08/2025 at 15:21:02 UTC</div>
             <div class="copyright">© Elliott Romano 2025</div>
+            <div class="social-links">
+                <a href="https://www.instagram.com/e_romno/" target="_blank" class="social-link">instagram</a>
+                <a href="https://www.linkedin.com/in/elliott-romano-02b95673" target="_blank" class="social-link">linkedin</a>
+                <a href="#" class="social-link email-copy" data-email="elliottmatthewromano@gmail.com">email</a>
+            </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
-    <script>
-        function toggleShowMore(button) {
-            const descriptionMore = button.previousElementSibling;
-            const descriptionText = button.parentElement.querySelector('.description-text');
-            
-            if (descriptionMore.classList.contains('hidden')) {
-                // Show more
-                descriptionMore.classList.remove('hidden');
-                descriptionText.style.display = 'block';
-                descriptionText.style.webkitLineClamp = 'unset';
-                button.textContent = 'show less';
-            } else {
-                // Show less
-                descriptionMore.classList.add('hidden');
-                descriptionText.style.display = '-webkit-box';
-                descriptionText.style.webkitLineClamp = '2';
-                button.textContent = 'show more';
-            }
-        }
-    </script>
 </body>
 </html>

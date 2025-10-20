@@ -177,19 +177,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Title animation
     const titleElement = document.querySelector('.site-title');
-    const titles = ['ELLIOTT ROMANO', 'GRAPHIC, PRODUCT, & MOTION DESIGN'];
-    let currentIndex = 0;
-    
-    function animateTitle() {
-        currentIndex = (currentIndex + 1) % titles.length;
-        titleElement.textContent = titles[currentIndex];
-    }
-    
-    // Start animation after 5 seconds, then repeat every 5 seconds
-    setTimeout(() => {
-        animateTitle();
-        setInterval(animateTitle, 5000);
-    }, 5000);
 
     // Match image container height to video container height
     function matchMediaHeights() {
@@ -327,7 +314,47 @@ document.addEventListener('DOMContentLoaded', function() {
         
         document.body.removeChild(textArea);
     }
+
+    // Project toggle functionality
+    const toggleOptions = document.querySelectorAll('.toggle-option');
+    const selectedProjects = document.getElementById('selected-projects');
+    const coolerProjects = document.getElementById('cooler-projects');
+
+    if (toggleOptions.length > 0) {
+        toggleOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                // Remove active class from all options
+                toggleOptions.forEach(opt => opt.classList.remove('active'));
+                
+                // Add active class to clicked option
+                this.classList.add('active');
+                
+                // Show/hide appropriate content
+                const tab = this.getAttribute('data-tab');
+                if (tab === 'selected') {
+                    selectedProjects.classList.remove('hidden');
+                    coolerProjects.classList.add('hidden');
+                } else if (tab === 'cooler') {
+                    selectedProjects.classList.add('hidden');
+                    coolerProjects.classList.remove('hidden');
+                }
+            });
+        });
+    }
 });
+
+// Scroll to top function
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+// Navigate to index page function
+function goToIndex() {
+    window.location.href = 'index.html';
+}
 
 // Add CSS for grid view
 const style = document.createElement('style');
