@@ -1415,6 +1415,10 @@ body {
         flex-direction: column !important;
     }
     
+    .projects-list.hidden {
+        display: none !important;
+    }
+    
     .projects-list.grid-view {
         display: flex !important;
         flex-direction: column !important;
