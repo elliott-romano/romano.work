@@ -341,6 +341,46 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+
+    // Lazy loading for videos
+    const lazyVideos = document.querySelectorAll('video[data-src]');
+    
+    if ('IntersectionObserver' in window) {
+        const videoObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const video = entry.target;
+                    const src = video.getAttribute('data-src');
+                    
+                    if (src) {
+                        video.src = src;
+                        video.autoplay = true;
+                        video.load();
+                        video.removeAttribute('data-src');
+                        observer.unobserve(video);
+                    }
+                }
+            });
+        }, {
+            rootMargin: '50px 0px',
+            threshold: 0.1
+        });
+
+        lazyVideos.forEach(video => {
+            videoObserver.observe(video);
+        });
+    } else {
+        // Fallback for browsers without IntersectionObserver
+        lazyVideos.forEach(video => {
+            const src = video.getAttribute('data-src');
+            if (src) {
+                video.src = src;
+                video.autoplay = true;
+                video.load();
+                video.removeAttribute('data-src');
+            }
+        });
+    }
 });
 
 // Scroll to top function
