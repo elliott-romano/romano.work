@@ -27,179 +27,225 @@
         <!-- Header Section -->
         <section class="header-section fade-in-delay-1">
             <div class="header-content">
-                <div class="intro-text">
+                <div class="intro-card">
                         <p class="intro-paragraph">
-                            My name is Elliott Romano I design software and interactive tools. I create <span class="underlined">visual systems</span> and <span class="underlined">interfaces</span> that help people understand, shape, and play with technology.
+                            Hello, My name is Elliott Romano. I design software, interactive tools, and spaces. I create <span class="underlined">visual systems</span> and <span class="underlined">interfaces</span> that help people understand, shape, and play with technology.
                         </p>
-                    <a href="info.html" class="profile-link">View full profile →</a>
                 </div>
             </div>
         </section>
 
         <!-- Experience & Education Section -->
         <section class="experience-section fade-in-delay-2">
-            <div class="experience-grid">
-                <div class="experience-column">
-                    <h3 class="section-heading">Experience</h3>
-                    <div class="experience-item">
-                        <span class="year">2025</span>
-                        <span class="role">Docker Inc., Product Designer (contract)</span>
+            <div class="experience-card">
+                <div class="experience-grid">
+                    <div class="experience-column">
+                        <h3 class="section-heading">Experience</h3>
+                        <div class="experience-item">
+                            <span class="year">2025</span>
+                            <span class="role">Docker Inc., Product Designer (contract)</span>
+                        </div>
+                        <div class="experience-item">
+                            <span class="year">2024-2025</span>
+                            <span class="role">RISD Museum, Digital Designer</span>
+                        </div>
+                        <div class="experience-item">
+                            <span class="year">2017-2022</span>
+                            <span class="role">DigitalOcean, Senior Product Designer</span>
+                        </div>
                     </div>
-                    <div class="experience-item">
-                        <span class="year">2024-2025</span>
-                        <span class="role">RISD Museum, Digital Designer</span>
+                    <div class="education-column">
+                        <h3 class="section-heading">Education</h3>
+                        <div class="education-item">
+                            <span class="year">2025</span>
+                            <span class="degree">MFA Graphic Design, Rhode Island School of Design</span>
+                        </div>
+                        <div class="education-item">
+                            <span class="year">2013</span>
+                            <span class="degree">BFA Photography, Rhode Island School of Design</span>
+                        </div>
                     </div>
-                    <div class="experience-item">
-                        <span class="year">2017-2022</span>
-                        <span class="role">DigitalOcean, Senior Product Designer</span>
-                    </div>
-                </div>
-                <div class="education-column">
-                    <h3 class="section-heading">Education</h3>
-                    <div class="education-item">
-                        <span class="year">2025</span>
-                        <span class="degree">MFA Graphic Design, Rhode Island School of Design</span>
-                    </div>
-                    <div class="education-item">
-                        <span class="year">2013</span>
-                        <span class="degree">BFA Photography, Rhode Island School of Design</span>
+                    <div class="profile-column">
+                        <a href="info.html" class="profile-link">View full profile →</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Selected Projects Section -->
+        <!-- Projects Section -->
         <section class="projects-section fade-in-delay-3">
             <div class="projects-header">
-                <div class="projects-toggle">
-                    <button class="toggle-option active" data-tab="selected">Selected Projects</button>
-                    <button class="toggle-option" data-tab="cooler">Cooler Projects</button>
+                <div class="projects-filter">
+                    <button class="filter-option active" data-filter="selected">Selected</button>
+                    <button class="filter-option" data-filter="all">All</button>
+                    <button class="filter-option" data-filter="ux-product">UX/Product</button>
+                    <button class="filter-option" data-filter="identity">Identity</button>
+                    <button class="filter-option" data-filter="exhibition">Exhibition</button>
+                    <button class="filter-option" data-filter="motion">Motion</button>
+                    <button class="filter-option" data-filter="print">Print</button>
                 </div>
             </div>
             
-            <div class="projects-list" id="selected-projects">
-                <!-- Project 1 - Docker Tag Mutability -->
-                <article class="project-item">
+            <div class="projects-list">
+                <!-- Project 1 - RISD Museum Digital Guide -->
+                <article class="project-item" data-tags="ux-product exhibition selected">
                     <div class="project-visual">
-                        <video class="project-screenshot" muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture data-src="assets/index/docker/gordonOverview.mp4">
+                        <video class="project-screenshot" muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture src="assets/index/risdMuseum/main(fast-short).mp4" autoplay>
                         </video>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-name">Docker Tag Mutability/Gordon</h3>
+                        <p class="project-name">RISD Museum Digital Guide</p>
+                        <p class="project-tags">UX/Product, Exhibition</p>
                         <p class="project-description">
-                            I consulted with Docker Inc, to design and introduce new features for Dockerhub, a modern container registry system. The functionality I helped ship allows developers to programmatically manage their repositories, and interact with Gordon, Docker's primary AI agent to assist with new learning about new processes or automating mundane work, all of which make primary workflows feel lighter and easier.
+                            I had the opportunity to collaborate with museum curatorial and digital initiatives staff to conceptualize and design the primary digital visitor application for the RISD Museum which aimed to help visitors discover and navigate the challenging architectural footprint of the gallery spaces, as well as its vast collection of works and associated media.
                         </p>
                     </div>
                 </article>
 
                 <!-- Project 2 - DigitalOcean Product Onboarding -->
-                <article class="project-item">
+                <article class="project-item" data-tags="ux-product selected">
                     <div class="project-visual">
-                        <video class="project-screenshot" muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture data-src="assets/index/digitalocean/reel.mp4">
+                        <video class="project-screenshot" muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture src="assets/index/digitalocean/reel.mp4" autoplay>
                         </video>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-name">DigitalOcean Product Onboarding & Growth</h3>
+                        <p class="project-name">DigitalOcean Product Onboarding & Growth</p>
+                        <p class="project-tags">UX/Product</p>
                         <p class="project-description">
                             As a design lead on DigitalOceans Growth team, I led user research studies and design Initiatives that made using cloud infrastructure feel light and understandable for a previously underserved market - developers and makers with limited cloud experience. My work included the release of many measurable design and interface experiments that informed several iterative system-wide interface updates to the first time user experience of the DigitalOcean Platform.
                         </p>
                     </div>
                 </article>
 
-                <!-- Project 3 - RISD Museum Digital Guide -->
-                <article class="project-item">
+                <!-- Project 3 - CTC -->
+                <article class="project-item" data-tags="motion identity selected">
                     <div class="project-visual">
-                        <video class="project-screenshot" muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture data-src="assets/index/risdMuseum/main(fast-short).mp4">
+                        <video class="project-screenshot" muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture src="assets/index/ctc/ctc[compressed].mp4" autoplay>
                         </video>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-name">RISD Museum Digital Guide</h3>
-                        <p class="project-description">
-                            I had the opportunity to collaborate with museum curatorial and digital initiatives staff to conceptualize and design the primary digital visitor application for the RISD Museum which aimed to help visitors discover and navigate the challenging architectural footprint of the gallery spaces, as well as its vast collection of works and associated media.
-                        </p>
-                    </div>
-                </article>
-            </div>
-            
-            <div class="projects-list hidden" id="cooler-projects">
-                <!-- Project 1 - Instrument MFA Thesis -->
-                <article class="project-item">
-                    <div class="project-visual">
-                        <video class="project-screenshot" muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture data-src="assets/index/instrument/book-square 5.mp4">
-                        </video>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-name">Instrument MFA Thesis (2025)</h3>
-                        <p class="project-description">
-                            Instrument is a thesis project exploring the intersection of typography, technology, and human interaction. Through custom software and experimental printing techniques, this work investigates how digital tools can enhance rather than replace traditional design processes, creating new possibilities for visual communication.
-                        </p>
-                    </div>
-                </article>
-
-                <!-- Project 2 - CTC -->
-                <article class="project-item">
-                    <div class="project-visual">
-                        <video class="project-screenshot" muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture data-src="assets/index/ctc/social1920.mp4">
-                        </video>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-name">CTC (2024)</h3>
+                        <p class="project-name">CTC (2024)</p>
+                        <p class="project-tags">Motion, Identity</p>
                         <p class="project-description">
                             CTC is a collaborative project exploring computational design methodologies in contemporary practice. This work combines algorithmic thinking with traditional design principles to create dynamic visual systems that respond to data and user interaction.
                         </p>
                     </div>
                 </article>
 
-                <!-- Project 3 - Various Flora -->
-                <article class="project-item">
+                <!-- Project 4 - Docker Tag Mutability -->
+                <article class="project-item" data-tags="ux-product selected">
                     <div class="project-visual">
-                        <video class="project-screenshot" muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture data-src="assets/index/variousFlora/00.mp4">
+                        <video class="project-screenshot" muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture src="assets/index/docker/gordonOverview.mp4" autoplay>
                         </video>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-name">Various Flora (2025)</h3>
+                        <p class="project-name">Docker Tag Mutability/Gordon</p>
+                        <p class="project-tags">UX/Product</p>
+                        <p class="project-description">
+                            I consulted with Docker Inc, to design and introduce new features for Dockerhub, a modern container registry system. The functionality I helped ship allows developers to programmatically manage their repositories, and interact with Gordon, Docker's primary AI agent to assist with new learning about new processes or automating mundane work, all of which make primary workflows feel lighter and easier.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Project 5 - RISD Grad Show 2025 -->
+                <article class="project-item" data-tags="identity selected">
+                    <div class="project-visual">
+                        <video class="project-screenshot" muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture src="assets/index/gradShow/gradShow[Compressed].mp4" autoplay>
+                        </video>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-name">RISD Grad Show 2025</p>
+                        <p class="project-tags">Identity</p>
+                        <p class="project-description">
+                            Identity design web development for RISD's annual show of graduate student work at the Rhode Island Convention Center. This identity explores the notion of another door opening as another closes, an optimistic lens towards leaving grad school for the next thing.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Project 4 - Instrument MFA Thesis -->
+                <article class="project-item" data-tags="motion print">
+                    <div class="project-visual">
+                        <video class="project-screenshot" muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture src="assets/index/instrument/book-square 5.mp4" autoplay>
+                        </video>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-name">Instrument MFA Thesis (2025)</p>
+                        <p class="project-tags">Motion, Print</p>
+                        <p class="project-description">
+                            Instrument is a thesis project exploring the intersection of typography, technology, and human interaction. Through custom software and experimental printing techniques, this work investigates how digital tools can enhance rather than replace traditional design processes, creating new possibilities for visual communication.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Project 5 - CTC -->
+                <article class="project-item" data-tags="motion identity selected">
+                    <div class="project-visual">
+                        <video class="project-screenshot" muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture src="assets/index/ctc/ctc[compressed].mp4" autoplay>
+                        </video>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-name">CTC (2024)</p>
+                        <p class="project-tags">Motion, Identity</p>
+                        <p class="project-description">
+                            CTC is a collaborative project exploring computational design methodologies in contemporary practice. This work combines algorithmic thinking with traditional design principles to create dynamic visual systems that respond to data and user interaction.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Project 6 - Various Flora -->
+                <article class="project-item" data-tags="exhibition motion">
+                    <div class="project-visual">
+                        <video class="project-screenshot" muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture src="assets/index/variousFlora/00.mp4" autoplay>
+                        </video>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-name">Various Flora (2025)</p>
+                        <p class="project-tags">Exhibition, Motion</p>
                         <p class="project-description">
                             Various Flora was a public exhibition at the RISD Museum in Providence, RI. The exhibition featured a collection of Machine-Learning generated flora trained from the museum's vast collection of botanical prints. Each piece explored the intersection of traditional botanical illustration and contemporary AI-generated imagery, creating hybrid forms that question the boundaries between natural and artificial representation.
                         </p>
                     </div>
                 </article>
 
-                <!-- Project 4 - Cellular Autonomies -->
-                <article class="project-item">
+                <!-- Project 7 - Cellular Autonomies -->
+                <article class="project-item" data-tags="print">
                     <div class="project-visual">
-                        <video class="project-screenshot" muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture data-src="assets/index/cellularAutonomy/cellularAutonomies.mp4">
+                        <video class="project-screenshot" muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture src="assets/index/cellularAutonomy/cellularAutonomies.mp4" autoplay>
                         </video>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-name">Cellular Autonomies (2024)</h3>
+                        <p class="project-name">Cellular Autonomies (2024)</p>
+                        <p class="project-tags">Print</p>
                         <p class="project-description">
                             Cellular Autonomies is a study into natural systems as a means of generating improvised procedural form. Using custom software based on Stephen Wolfram's original Cellular Autonoma algorithms as a means of generative pattern making, a series of monoprints further abstract the gesture of unpredicatble growth from one element to the next. The collection exists as a series of large scale monoprints and limited edition risograph booklets.
                         </p>
                     </div>
                 </article>
 
-                <!-- Project 5 - LRAD -->
-                <article class="project-item">
+                <!-- Project 8 - LRAD -->
+                <article class="project-item" data-tags="print motion">
                     <div class="project-visual">
-                        <video class="project-screenshot" muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture data-src="assets/index/LRAD/lrad_01.mp4">
+                        <video class="project-screenshot" muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture src="assets/index/LRAD/lrad_01.mp4" autoplay>
                         </video>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-name">LRAD (2024)</h3>
+                        <p class="project-name">LRAD (2024)</p>
+                        <p class="project-tags">Print, Motion</p>
                         <p class="project-description">
                             LRAD was a research project into the use of sound and control, diving into the history and usage of Long-Range-Acoustic-Device (LRAD). The resulting print and digital publications and explores the visual and material language of "tactical sound" as the LRAD becomes a more ubiquitous in its use in policing and protest.
                         </p>
                     </div>
                 </article>
 
-                <!-- Project 6 - Chladni Sans -->
-                <article class="project-item">
+                <!-- Project 9 - Chladni Sans -->
+                <article class="project-item" data-tags="identity motion">
                     <div class="project-visual">
-                        <video class="project-screenshot" muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture data-src="assets/index/chladni/00Book.mov">
+                        <video class="project-screenshot" muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture src="assets/index/chladni/00Book.mov" autoplay>
                         </video>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-name">Chladni Sans (2024)</h3>
+                        <p class="project-name">Chladni Sans (2024)</p>
+                        <p class="project-tags">Identity, Motion</p>
                         <p class="project-description">
                             Chladni Sans is an experimental typeface that explores the intersection of sound, vibration, and visual form. Inspired by Chladni figures—patterns created by sound waves on vibrating plates—this typeface translates acoustic phenomena into letterforms, creating a unique visual language that bridges the gap between auditory and visual perception.
                         </p>

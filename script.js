@@ -315,72 +315,119 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.removeChild(textArea);
     }
 
-    // Project toggle functionality
-    const toggleOptions = document.querySelectorAll('.toggle-option');
-    const selectedProjects = document.getElementById('selected-projects');
-    const coolerProjects = document.getElementById('cooler-projects');
+    // Project filter functionality
+    const filterButtons = document.querySelectorAll('.filter-option');
+    const projectItems = document.querySelectorAll('.project-item');
+    const filterContainer = document.querySelector('.projects-filter');
 
-    if (toggleOptions.length > 0) {
-        toggleOptions.forEach(option => {
-            option.addEventListener('click', function() {
-                // Remove active class from all options
-                toggleOptions.forEach(opt => opt.classList.remove('active'));
+    console.log('Filter buttons found:', filterButtons.length);
+    console.log('Project items found:', projectItems.length);
+    console.log('Filter container found:', filterContainer);
+
+    if (filterButtons.length > 0) {
+        // Create animated pill background
+        const pill = document.createElement('div');
+        pill.className = 'filter-pill';
+        filterContainer.appendChild(pill);
+
+        // Function to update pill position
+        function updatePillPosition(activeButton) {
+            const buttonRect = activeButton.getBoundingClientRect();
+            const containerRect = filterContainer.getBoundingClientRect();
+            
+            const left = buttonRect.left - containerRect.left;
+            const width = buttonRect.width;
+            const height = buttonRect.height;
+            
+            pill.style.left = `${left}px`;
+            pill.style.width = `${width}px`;
+            pill.style.height = `${height}px`;
+            pill.style.top = `${buttonRect.top - containerRect.top}px`;
+        }
+
+        // Initialize pill position for active button
+        const activeButton = document.querySelector('.filter-option.active');
+        if (activeButton) {
+            updatePillPosition(activeButton);
+        }
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                console.log('Filter button clicked:', this.textContent, this.getAttribute('data-filter'));
                 
-                // Add active class to clicked option
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
                 this.classList.add('active');
                 
-                // Show/hide appropriate content
-                const tab = this.getAttribute('data-tab');
-                if (tab === 'selected') {
-                    selectedProjects.classList.remove('hidden');
-                    coolerProjects.classList.add('hidden');
-                } else if (tab === 'cooler') {
-                    selectedProjects.classList.add('hidden');
-                    coolerProjects.classList.remove('hidden');
-                }
-            });
-        });
-    }
-
-    // Lazy loading for videos
-    const lazyVideos = document.querySelectorAll('video[data-src]');
-    
-    if ('IntersectionObserver' in window) {
-        const videoObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const video = entry.target;
-                    const src = video.getAttribute('data-src');
+                // Update pill position with animation
+                updatePillPosition(this);
+                
+                // Get the filter data
+                const filter = this.getAttribute('data-filter');
+                
+                console.log('Filtering by:', filter);
+                projectItems.forEach((item, index) => {
+                    const tags = item.getAttribute('data-tags');
+                    let shouldShow = false;
                     
-                    if (src) {
-                        video.src = src;
-                        video.autoplay = true;
-                        video.load();
-                        video.removeAttribute('data-src');
-                        observer.unobserve(video);
+                    if (filter === 'all') {
+                        shouldShow = true;
+                    } else if (filter === 'selected') {
+                        shouldShow = tags.includes('selected');
+                    } else {
+                        shouldShow = tags.includes(filter);
                     }
-                }
+                    
+                    console.log(`Project ${index}: tags="${tags}", shouldShow=${shouldShow}`);
+                    setTimeout(() => {
+                        if (shouldShow) {
+                            item.style.display = 'block';
+                            item.style.opacity = '0';
+                            item.style.transform = 'translateY(20px)';
+                            
+                            // Animate in
+                            requestAnimationFrame(() => {
+                                item.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                                item.style.opacity = '1';
+                                item.style.transform = 'translateY(0)';
+                            });
+                        } else {
+                            // Animate out
+                            item.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+                            item.style.opacity = '0';
+                            item.style.transform = 'translateY(-10px)';
+                            
+                            setTimeout(() => {
+                                item.style.display = 'none';
+                            }, 200);
+                        }
+                    }, index * 50); // Staggered delay
+                });
             });
-        }, {
-            rootMargin: '50px 0px',
-            threshold: 0.1
         });
 
-        lazyVideos.forEach(video => {
-            videoObserver.observe(video);
-        });
-    } else {
-        // Fallback for browsers without IntersectionObserver
-        lazyVideos.forEach(video => {
-            const src = video.getAttribute('data-src');
-            if (src) {
-                video.src = src;
-                video.autoplay = true;
-                video.load();
-                video.removeAttribute('data-src');
-            }
-        });
+        // Initialize with "selected" filter on page load
+        const selectedButton = document.querySelector('.filter-option.active');
+        if (selectedButton && selectedButton.getAttribute('data-filter') === 'selected') {
+            // Trigger the selected filter on page load
+            projectItems.forEach((item, index) => {
+                const tags = item.getAttribute('data-tags');
+                const shouldShow = tags.includes('selected');
+                
+                if (!shouldShow) {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Videos are now loaded directly in HTML with src attributes
+        // No need for lazy loading since videos are already loaded
     }
+
+    // Videos are now loaded directly in HTML with src attributes
+    // No lazy loading needed
 });
 
 // Scroll to top function

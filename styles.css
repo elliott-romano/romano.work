@@ -854,13 +854,108 @@ body {
 
 /* New Index Design Styles */
 .header-section {
-    margin-bottom: 48px;
+    margin-bottom: 16px;
 }
 
 .header-content {
     display: flex;
     flex-direction: column;
     gap: 24px;
+}
+
+.intro-card {
+    background-color: #00FF2F;
+    border-radius: 8px;
+    padding: 0;
+}
+
+.intro-paragraph {
+    font-family: 'Instrument Sans', Arial, sans-serif;
+    font-size: 24px;
+    color: #000000;
+    line-height: 1.5;
+    margin: 16px;
+}
+
+.underlined {
+    text-decoration: underline;
+}
+
+.experience-section {
+    margin-bottom: 16px;
+}
+
+.experience-card {
+    background-color: #00FF2F;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+}
+
+.experience-column,
+.education-column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.profile-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.section-heading {
+    font-family: 'Instrument Sans', Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #000000;
+    margin: 0;
+}
+
+.experience-item,
+.education-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    margin: 0;
+}
+
+.year {
+    font-family: 'Instrument Sans', Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #000000;
+    min-width: 60px;
+}
+
+.role,
+.degree {
+    font-family: 'Instrument Sans', Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #000000;
+}
+
+.profile-link {
+    font-family: 'Instrument Sans', Arial, sans-serif;
+    font-size: 14px;
+    color: #000000;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+    align-self: flex-start;
+    margin-top: 0;
+}
+
+.profile-link:hover {
+    color: #666666;
 }
 
 .logo {
@@ -932,7 +1027,7 @@ body {
     font-size: 24px;
     color: #000000;
     line-height: 1.5;
-    margin: 0 0 16px 0;
+    margin: 16px;
 }
 
 .underlined {
@@ -951,14 +1046,9 @@ body {
 }
 
 .experience-section {
-    margin-bottom: 48px;
+    margin-bottom: 16px;
 }
 
-.experience-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
-}
 
 .section-heading {
     font-family: 'Instrument Sans', Arial, sans-serif;
@@ -972,7 +1062,7 @@ body {
 .education-item {
     display: flex;
     gap: 16px;
-    margin-bottom: 16px;
+    margin: 0;
 }
 
 .year {
@@ -992,44 +1082,57 @@ body {
 }
 
 .projects-section {
-    margin-bottom: 24px;
+    margin-bottom: 16px;
 }
 
 .projects-header {
-    margin-bottom: 32px;
+    margin-bottom: 16px;
 }
 
-.projects-toggle {
+/* Projects Filter */
+.projects-filter {
+    background-color: #00FF2F;
+    padding: 16px;
+    border-radius: 8px;
     display: flex;
-    gap: 24px;
-    border-bottom: 1px solid #000000;
-    padding-bottom: 8px;
+    gap: 16px;
+    align-items: center;
+    margin-bottom: 16px;
+    position: relative;
 }
 
-.toggle-option {
+.filter-option {
     font-family: 'Instrument Sans', Arial, sans-serif;
     font-size: 14px;
-    color: #999999;
+    color: #666666;
     background: none;
     border: none;
     cursor: pointer;
-    padding: 8px 0;
+    padding: 8px;
     font-weight: 400;
-    transition: all 0.2s ease;
-    opacity: 0.6;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+    border-radius: 20px;
 }
 
-.toggle-option:hover {
-    color: #666666;
-    opacity: 0.8;
+.filter-option:hover {
+    color: #333333;
 }
 
-.toggle-option.active {
+.filter-option.active {
     color: #000000;
     font-weight: 600;
-    opacity: 1;
-    border-bottom: 2px solid #000000;
-    padding-bottom: 6px;
+}
+
+/* Animated pill background */
+.filter-pill {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+    pointer-events: none;
 }
 
 
@@ -1055,10 +1158,25 @@ body {
     display: flex;
     flex-direction: column;
     gap: 24px;
+    background-color: #00FF2F;
+    border-radius: 8px;
+    padding: 16px;
 }
 
 .project-visual {
     width: 100%;
+}
+
+.project-placeholder {
+    width: 100%;
+    height: 300px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    font-size: 14px;
 }
 
 .project-screenshot {
@@ -1066,13 +1184,6 @@ body {
     height: auto;
     border-radius: 8px;
     background-color: #f0f0f0;
-    object-fit: cover;
-}
-
-.project-screenshot video {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
     object-fit: cover;
 }
 
@@ -1102,22 +1213,17 @@ body {
 
 .project-content {
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 32px;
+    grid-template-columns: 1fr 1fr 2fr;
+    gap: 16px;
     align-items: start;
 }
 
-.project-name {
-    font-family: 'Instrument Sans', Arial, sans-serif;
-    font-size: 14px;
-    font-weight: 400;
+.project-tags {
     color: #000000;
-    margin: 0 0 16px 0;
+    font-weight: 400;
 }
 
 .project-description {
-    font-family: 'Instrument Sans', Arial, sans-serif;
-    font-size: 14px;
     color: #000000;
     line-height: 1.6;
     margin: 0;
@@ -1149,6 +1255,11 @@ body {
     .experience-grid {
         grid-template-columns: 1fr;
         gap: 32px;
+    }
+    
+    .intro-card,
+    .experience-card {
+        padding: 16px;
     }
     
     .project-item {
