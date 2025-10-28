@@ -34,6 +34,82 @@ function hideUnnecessaryShowMoreButtons() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+    // ----- Lightbox for media items -----
+    const lightbox = document.getElementById('lightbox');
+    const lightboxContent = lightbox ? lightbox.querySelector('.lightbox-content') : null;
+    const closeBtn = lightbox ? lightbox.querySelector('.lightbox-close') : null;
+
+    function openLightbox(node) {
+        if (!lightbox || !lightboxContent) return;
+        lightboxContent.innerHTML = '';
+        const clone = node.cloneNode(true);
+        clone.removeAttribute('style');
+        clone.className = '';
+        if (clone.tagName.toLowerCase() === 'video') {
+            clone.removeAttribute('controls');
+            clone.setAttribute('autoplay', '');
+            clone.setAttribute('muted', '');
+            clone.setAttribute('playsinline', '');
+        }
+        lightboxContent.appendChild(clone);
+        lightbox.classList.remove('hidden');
+        lightbox.setAttribute('aria-hidden', 'false');
+
+        // Start playback after insertion
+        if (clone.tagName && clone.tagName.toLowerCase() === 'video') {
+            try { clone.muted = true; clone.play(); } catch (e) {}
+        }
+    }
+
+    function closeLightbox() {
+        if (!lightbox || !lightboxContent) return;
+        lightbox.classList.add('hidden');
+        lightbox.setAttribute('aria-hidden', 'true');
+        lightboxContent.innerHTML = '';
+    }
+
+    if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+    if (lightbox) lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+    });
+
+    document.querySelectorAll('.media-item img, .media-item video').forEach(el => {
+        el.style.cursor = 'zoom-in';
+        el.addEventListener('click', () => openLightbox(el));
+    });
+
+    // Optional auto-detect portrait media. Enable by adding data-auto-orient="true" on a .media-item
+    function tagPortraitMedia() {
+        document.querySelectorAll('.media-item[data-auto-orient="true"]').forEach(container => {
+            const media = container.querySelector('img, video');
+            if (!media) return;
+
+            const markIfPortrait = (naturalWidth, naturalHeight) => {
+                if (naturalWidth && naturalHeight && naturalHeight > naturalWidth) {
+                    container.classList.add('portrait');
+                } else {
+                    container.classList.remove('portrait');
+                }
+            };
+
+            if (media.tagName.toLowerCase() === 'img') {
+                if (media.complete && media.naturalWidth) {
+                    markIfPortrait(media.naturalWidth, media.naturalHeight);
+                } else {
+                    media.addEventListener('load', () => markIfPortrait(media.naturalWidth, media.naturalHeight), { once: true });
+                }
+            } else if (media.tagName.toLowerCase() === 'video') {
+                if (media.videoWidth) {
+                    markIfPortrait(media.videoWidth, media.videoHeight);
+                } else {
+                    media.addEventListener('loadedmetadata', () => markIfPortrait(media.videoWidth, media.videoHeight), { once: true });
+                }
+            }
+        });
+    }
+
+    // Disabled by default; call only if attributes present
+    tagPortraitMedia();
     // Navigation functionality
     const navLinks = document.querySelectorAll('.nav-link');
     const viewLinks = document.querySelectorAll('.view-link');

@@ -1,3 +1,42 @@
+.lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.lightbox-overlay.hidden { display: none; }
+
+.lightbox-content img,
+.lightbox-content video {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 8px;
+}
+
+.lightbox-content video::-webkit-media-controls-panel,
+.lightbox-content video::-webkit-media-controls-enclosure,
+.lightbox-content video::-webkit-media-controls {
+    display: none !important;
+}
+
+.lightbox-content video {
+    -webkit-media-controls: none !important;
+}
+
+.lightbox-close {
+    position: fixed;
+    top: 12px;
+    right: 16px;
+    font-size: 28px;
+    color: #fff;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -44,6 +83,126 @@ body {
     }
 }
 
+/* Navigation */
+nav {
+    position: sticky;
+    top: 0;
+    background-color: transparent;
+    padding: 20px 24px;
+    z-index: 1000;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 16px;
+}
+
+.nav-left {
+    justify-self: start;
+}
+
+.nav-right {
+    justify-self: end;
+}
+
+nav h1 {
+    font-size: 14px;
+    font-weight: 400;
+    color: #000000;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0;
+}
+
+.nav-button {
+    font-size: 14px;
+    color: #ffffff;
+    background: #00FF2F;
+    border: none;
+    cursor: pointer;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+    opacity: 0.8;
+}
+
+.view-toggle {
+    font-size: 14px;
+    color: #000000;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-transform: capitalize;
+}
+
+/* Sticky Navigation */
+.sticky-nav {
+    position: sticky;
+    top: 0;
+    background-color: #f5f5f5;
+    z-index: 1000;
+    padding: 8px 15%;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+}
+
+.nav-left,
+.nav-right {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.nav-right {
+    justify-content: flex-end;
+}
+
+.nav-title {
+    text-align: center;
+    font-size: 14px;
+    color: #000000;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0;
+}
+
+.nav-button {
+    font-size: 14px;
+    color: #ffffff;
+    background: #00FF2F;
+    border: none;
+    cursor: pointer;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.nav-button:not(.active) {
+    background: #e0e0e0;
+    color: #000000;
+}
+
+.nav-button:hover {
+    opacity: 0.8;
+}
+
+.view-toggle {
+    font-size: 14px;
+    color: #000000;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    text-transform: capitalize;
+}
+
+.view-toggle:hover {
+    opacity: 0.7;
+}
+
 /* Marquee */
 .marquee {
     background-color: #ffffff;
@@ -74,9 +233,14 @@ body {
 .sticky-nav {
     position: sticky;
     top: 0;
-    background-color: transparent;
+    background-color: #f5f5f5;
     z-index: 1000;
-    padding: 20px 0;
+    padding: 16px 15%;
+    mix-blend-mode: normal;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
 }
 
 .nav-container {
@@ -88,9 +252,69 @@ body {
     justify-content: space-between;
 }
 
-.nav-left {
+.nav-content {
     display: flex;
-    gap: 8px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-left, .nav-right {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.nav-title {
+    font-size: 14px;
+    font-weight: 400;
+    color: #000000;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav-button {
+    font-size: 14px;
+    color: #ffffff;
+    background: #00FF2F;
+    border: none;
+    cursor: pointer;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.nav-button:hover {
+    background-color: #00dd2a;
+}
+
+.nav-button.active {
+    background-color: #00FF2F;
+    color: #ffffff;
+}
+
+/* Right side LIST / GRID as plain text links */
+.view-toggle {
+    font-size: 14px;
+    color: #666666;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: color 0.2s ease;
+}
+
+.view-toggle:hover {
+    color: #000000;
+}
+
+.view-toggle.active {
+    text-decoration: underline;
 }
 
 .nav-link {
@@ -128,14 +352,20 @@ body {
 .nav-right {
     display: flex;
     align-items: center;
+    gap: 16px;
 }
 
 .view-toggle {
-    color: #666;
+    color: #000000;
     font-size: 14px;
-    display: flex;
-    align-items: center;
-    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-transform: capitalize;
+}
+
+.view-toggle.active {
+    text-decoration: underline;
 }
 
 .view-link {
@@ -158,7 +388,7 @@ body {
 .main-content {
     max-width: none;
     margin: 0;
-    padding: 48px 15% 0 15%;
+    padding: 24px 24px 0 24px;
 }
 
 /* Bio Section */
@@ -871,7 +1101,7 @@ body {
 
 .intro-paragraph {
     font-family: 'Instrument Sans', Arial, sans-serif;
-    font-size: 24px;
+    font-size: 14px;
     color: #000000;
     line-height: 1.5;
     margin: 16px;
@@ -969,7 +1199,6 @@ body {
     z-index: 1000;
     background-color: transparent;
     padding: 20px 15% 0 15%;
-    mix-blend-mode: difference;
 }
 
 .nav-content {
@@ -1024,7 +1253,7 @@ body {
 
 .intro-paragraph {
     font-family: 'Instrument Sans', Arial, sans-serif;
-    font-size: 24px;
+    font-size: 16px;
     color: #000000;
     line-height: 1.5;
     margin: 16px;
@@ -1157,14 +1386,124 @@ body {
 .project-item {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 16px;
+    background-color: transparent;
+    border-radius: 0;
+    padding: 0;
+    position: relative;
+}
+
+.project-content {
     background-color: #00FF2F;
     border-radius: 8px;
     padding: 16px;
+    position: sticky;
+    top: 60px; /* stay below sticky nav */
+    z-index: 1;
+}
+
+.project-name {
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #000000;
+}
+
+.project-tags {
+    display: none;
+}
+
+.project-description {
+    font-size: 12px;
 }
 
 .project-visual {
     width: 100%;
+    order: 2;
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+
+/* Allow multi-row wrap after 3 items */
+.media-grid {
+    flex-wrap: wrap;
+}
+
+.media-grid > .media-item {
+    flex: 1 1 calc((100% - 32px) / 3); /* 3 items per row accounting for 16px gaps */
+    align-self: flex-start; /* allow taller portrait tiles without stretching row */
+}
+
+@media (max-width: 900px) {
+    .media-grid > .media-item {
+        flex: 1 1 calc((100% - 16px) / 2); /* 2 per row on medium */
+    }
+}
+
+@media (max-width: 768px) {
+    /* Simpler block layout on mobile to avoid flex/absolute quirks */
+    .media-grid { display: block; }
+    .media-grid > .media-item {
+        width: 100%;
+        aspect-ratio: auto;
+        margin-bottom: 16px;
+    }
+    .media-grid > .media-item > img,
+    .media-grid > .media-item > video {
+        position: static;
+        inset: auto;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+    .media-grid > .media-item.portrait > img,
+    .media-grid > .media-item.portrait > video {
+        object-fit: contain;
+    }
+}
+
+@media (max-width: 768px) {
+    .project-visual {
+        flex-direction: column;
+    }
+    .project-content {
+        position: static;
+        top: auto;
+    }
+}
+
+/* Hover caption overlay */
+.media-item {
+    position: relative;
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    /* Ensure all media tiles share the same height */
+    aspect-ratio: 16/9;
+}
+
+.media-item::after {
+    content: attr(data-caption);
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #000;
+    font-size: 12px;
+    line-height: 1.3;
+    border-radius: 8px;
+    padding: 8px 12px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 200ms ease, transform 200ms ease;
+    pointer-events: none;
+}
+
+.media-item:hover::after {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .project-placeholder {
@@ -1179,12 +1518,76 @@ body {
     font-size: 14px;
 }
 
-.project-screenshot {
+.project-screenshot,
+.project-image {
     width: 100%;
     height: auto;
     border-radius: 8px;
-    background-color: #f0f0f0;
     object-fit: cover;
+    display: block;
+}
+
+/* Preserve portrait orientation inside fixed-aspect tiles */
+.media-item img,
+.media-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Portrait tiles: keep same width as grid cell, allow taller height */
+.media-item.portrait { 
+    aspect-ratio: auto; /* let content dictate height */
+}
+.media-item.portrait img,
+.media-item.portrait video {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Make media fill the tile to match video heights */
+.media-item > img,
+.media-item > video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Override absolute fill for portrait tiles so container grows with media */
+.media-item.portrait > img,
+.media-item.portrait > video {
+    position: static;
+    inset: auto;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Mobile: force all tiles back to absolute fill */
+@media (max-width: 768px) {
+    .media-item > img,
+    .media-item > video {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .media-item.portrait > img,
+    .media-item.portrait > video {
+        position: absolute;
+        inset: 0;
+        object-fit: contain;
+    }
+}
+
+.project-visual > * {
+    flex: 1;
+    min-width: 0;
 }
 
 .video-container-centered {
@@ -1212,10 +1615,10 @@ body {
 }
 
 .project-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr 2fr;
-    gap: 16px;
-    align-items: start;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    order: 1;
 }
 
 .project-tags {
@@ -1417,6 +1820,51 @@ body {
     padding: 48px 15% 48px 15%;
     background-color: #f5f5f5;
 }
+
+/* --- Restored Nav from main branch --- */
+.sticky-nav {
+    position: sticky;
+    top: 0;
+    background-color: transparent;
+    z-index: 1000;
+    padding: 20px 0;
+}
+
+.nav-container {
+    max-width: none;
+    margin: 0;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-left { display: flex; gap: 8px; }
+
+.nav-link {
+    color: #666;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 4px 8px;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+    transition: all 0.2s ease;
+}
+
+.nav-link.active { color: #000; background-color: #00FF2F; }
+.nav-link:hover:not(.active) { color: #000; background-color: #e0e0e0; }
+
+.site-title {
+    font-size: 14px;
+    font-weight: 400;
+    color: #000;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.nav-right { display: flex; align-items: center; }
 
 .footer-content {
     display: flex;
