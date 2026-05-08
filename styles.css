@@ -171,6 +171,49 @@ nav {
     transition: opacity 0.3s ease;
 }
 
+/* Blur strip behind the nav — alpha gradient: 100% at top of nav, 0% at bottom */
+.progressive-blur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    z-index: 999;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    background-color: rgba(245, 245, 245, 0.35);
+    backdrop-filter: blur(32px) saturate(160%);
+    -webkit-backdrop-filter: blur(32px) saturate(160%);
+    mask-image: linear-gradient(to bottom,
+        rgba(0,0,0,1) 0%,
+        rgba(0,0,0,0.95) 25%,
+        rgba(0,0,0,0.7) 55%,
+        rgba(0,0,0,0.3) 80%,
+        rgba(0,0,0,0) 100%);
+    -webkit-mask-image: linear-gradient(to bottom,
+        rgba(0,0,0,1) 0%,
+        rgba(0,0,0,0.95) 25%,
+        rgba(0,0,0,0.7) 55%,
+        rgba(0,0,0,0.3) 80%,
+        rgba(0,0,0,0) 100%);
+}
+
+body.nav-active .progressive-blur {
+    opacity: 1;
+}
+
+/* The injected child layers are unused under the simplified single-layer strip */
+.progressive-blur .blur-layer {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .progressive-blur {
+        height: 90px; /* covers stacked title + nav rows on mobile */
+    }
+}
+
 .nav-left {
     justify-self: start;
     display: flex;

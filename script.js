@@ -46,6 +46,18 @@ function hideUnnecessaryShowMoreButtons() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Inject progressive blur stack at top of viewport
+    (() => {
+        const wrap = document.createElement('div');
+        wrap.className = 'progressive-blur';
+        for (let i = 1; i <= 4; i++) {
+            const layer = document.createElement('div');
+            layer.className = 'blur-layer blur-' + i;
+            wrap.appendChild(layer);
+        }
+        document.body.appendChild(wrap);
+    })();
+
     // ----- Lightbox for media items -----
     const lightbox = document.getElementById('lightbox');
     const lightboxContent = lightbox ? lightbox.querySelector('.lightbox-content') : null;
