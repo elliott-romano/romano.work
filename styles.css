@@ -157,8 +157,10 @@ body {
 
 /* Navigation */
 nav {
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     background-color: transparent;
     padding: 20px 24px;
     z-index: 1000;
@@ -547,10 +549,7 @@ body.nav-active .title-blend {
     padding: 24px 24px 0 24px;
 }
 
-/* Pull content up to overlap the (initially-hidden) sticky nav only on pages with a hero */
-body:has(.hero-section) .main-content {
-    margin-top: -70px;
-}
+/* Nav is position:fixed (zero layout space), so main-content needs no margin offset. */
 
 /* Bio Section */
 .bio-section {
@@ -1153,6 +1152,28 @@ body:has(.hero-section) .main-content {
 
 .experience-card .location {
     font-style: italic;
+}
+
+.education-card,
+.teaching-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    column-gap: 24px;
+    row-gap: 8px;
+}
+
+.education-card > .education-item,
+.teaching-card > .teaching-item {
+    display: contents;
+}
+
+.education-card .degree,
+.education-card .school,
+.teaching-card .teaching-role,
+.teaching-card .courses {
+    margin: 0;
+    font-size: 14px;
+    color: #000000;
 }
 
 .past-experience-item .company-name {
@@ -2338,7 +2359,11 @@ body:has(.hero-section) .main-content {
     }
     
     .main-content {
-        padding: 32px 16px 0 16px;
+        margin-top: 0 !important;
+        padding: 16px 16px 0 16px;
+    }
+    .hero-section {
+        margin-top: 0;
     }
     
     .info-card {

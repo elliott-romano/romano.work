@@ -58,6 +58,24 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.appendChild(wrap);
     })();
 
+    // Measure actual nav height and set as CSS var so the hero overlap is exact
+    (() => {
+        const navEl = document.querySelector('nav');
+        if (!navEl) return;
+        function setNavHeight() {
+            const h = navEl.offsetHeight;
+            document.documentElement.style.setProperty('--nav-h', h + 'px');
+        }
+        setNavHeight();
+        if (window.ResizeObserver) {
+            new ResizeObserver(setNavHeight).observe(navEl);
+        }
+        if (document.fonts && document.fonts.ready) {
+            document.fonts.ready.then(setNavHeight);
+        }
+        window.addEventListener('resize', setNavHeight);
+    })();
+
     // ----- Lightbox for media items -----
     const lightbox = document.getElementById('lightbox');
     const lightboxContent = lightbox ? lightbox.querySelector('.lightbox-content') : null;
