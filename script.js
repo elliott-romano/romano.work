@@ -84,6 +84,11 @@ document.addEventListener('DOMContentLoaded', function() {
     if (lightbox) lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox) closeLightbox();
     });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox && !lightbox.classList.contains('hidden')) {
+            closeLightbox();
+        }
+    });
 
     document.querySelectorAll('.media-item img, .media-item video').forEach(el => {
         el.style.cursor = 'zoom-in';
