@@ -58,6 +58,21 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.appendChild(wrap);
     })();
 
+    // Localized clock in footer
+    (() => {
+        const clocks = document.querySelectorAll('[data-clock]');
+        if (!clocks.length) return;
+        const tzName = (Intl.DateTimeFormat().resolvedOptions().timeZone || '').split('/').pop().replace(/_/g, ' ');
+        function tick() {
+            const now = new Date();
+            const time = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
+            const text = tzName ? `${time} ${tzName}` : time;
+            clocks.forEach(el => { el.textContent = text; });
+        }
+        tick();
+        setInterval(tick, 1000);
+    })();
+
     // Measure actual nav height and set as CSS var so the hero overlap is exact
     (() => {
         const navEl = document.querySelector('nav');

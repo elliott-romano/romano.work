@@ -546,10 +546,14 @@ body.nav-active .title-blend {
 .main-content {
     max-width: none;
     margin: 0;
-    padding: 24px 24px 0 24px;
+    /* default: leave room for the fixed nav above content */
+    padding: 100px 24px 0 24px;
 }
 
-/* Nav is position:fixed (zero layout space), so main-content needs no margin offset. */
+/* On hero pages the nav starts hidden, so the hero can sit at the top with just the side margin. */
+body.has-hero .main-content {
+    padding-top: 24px;
+}
 
 /* Bio Section */
 .bio-section {
@@ -2304,11 +2308,35 @@ body.nav-active .title-blend {
     color: #000000;
 }
 
-.last-updated {
+.last-updated,
+.footer-clock {
     color: #666;
     font-size: 14px;
     font-family: 'Union', sans-serif;
     font-weight: 400;
+    font-variant-numeric: tabular-nums;
+}
+
+.colophon-card {
+    display: grid;
+    grid-template-columns: minmax(0, auto) minmax(0, 1fr);
+    column-gap: 24px;
+    row-gap: 8px;
+}
+
+.colophon-row {
+    display: contents;
+}
+
+.colophon-label {
+    color: #000000;
+    font-style: italic;
+    font-size: 14px;
+}
+
+.colophon-value {
+    color: #000000;
+    font-size: 14px;
 }
 
 .copyright {
@@ -2360,7 +2388,11 @@ body.nav-active .title-blend {
     
     .main-content {
         margin-top: 0 !important;
-        padding: 16px 16px 0 16px;
+        /* mobile nav (title row + button row) is ~108px tall when visible */
+        padding: 108px 16px 0 16px;
+    }
+    body.has-hero .main-content {
+        padding-top: 16px;
     }
     .hero-section {
         margin-top: 0;
