@@ -9,11 +9,8 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="preload" href="fonts/Union-Regular.otf" as="font" type="font/otf" crossorigin>
     <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation -->
@@ -22,23 +19,22 @@
             <a class="nav-button" href="index.html">Work</a>
             <a class="nav-button" href="info.html">Info</a>
         </div>
-        <h1>ELLIOTT ROMANO</h1>
+        <h1>Elliott Romano</h1>
         <div class="nav-right">
             <button class="view-toggle">List</button>
             <button class="view-toggle">Grid</button>
         </div>
     </nav>
+    <h1 class="title-blend">Elliott Romano</h1>
 
     <!-- Main Content -->
     <main class="main-content fade-in">
-        <!-- Header Section -->
-        <section class="header-section fade-in-delay-1">
-            <div class="header-content">
-                <div class="intro-card">
-                        <p class="intro-paragraph">
-                            Elliott Romano is a graphic designer specializing in software, tools, and interactive spaces. He creates <span class="underlined">visual systems</span> and <span class="underlined">interfaces</span> that help people understand, shape, and play with technology. 
-                        </p>
-                </div>
+        <!-- Hero Section -->
+        <section class="hero-section fade-in-delay-1">
+            <div class="intro-card">
+                <p class="intro-paragraph">
+                    Elliott Romano is a graphic designer specializing in software, tools, and interactive spaces. He creates <span class="underlined">visual systems</span> and <span class="underlined">interfaces</span> that help people understand, shape, and play with technology.
+                </p>
             </div>
         </section>
 
@@ -52,7 +48,7 @@
                 <!-- Project - Instrument MFA Thesis -->
                 <article class="project-item" data-tags="motion print">
                     <div class="project-content">
-                        <p class="project-name">Instrument MFA Thesis </p>
+                        <p class="project-name">Instrument MFA Thesis</p>
                         <p class="project-description">
                             Printed Manual and lecture/performance covering a 3-year inquiry into the creation of graphic instruments, and interactive tools for audio reactive typography and design. 
                         </p>
@@ -106,7 +102,7 @@
                 <!-- Open Sky -->
                 <article class="project-item" data-tags="identity motion print">
                     <div class="project-content">
-                        <p class="project-name">OPEN SKY VISUAL IDENTITY</p>
+                        <p class="project-name">Open Sky Visual Identity</p>
                         <p class="project-description">
                             Printed and digital materials created for OPEN SKY, an independent exhibition of mediums exploring data & authorship. Designed in collaboration with Clinton Van Arnam.
                         </p>
@@ -127,7 +123,7 @@
                 <!-- White Alcove -->
                 <article class="project-item" data-tags="identity motion print">
                     <div class="project-content">
-                        <p class="project-name">White Alcove visual identity</p>
+                        <p class="project-name">White Alcove Visual Identity</p>
                         <p class="project-description">
                             Visual identity, packaging and social media materials created for White Alcove. Illustration work by Shuhua Xiong.
                         </p>
@@ -148,7 +144,7 @@
                 <!-- RISD Museum Digital Guide & Wayfinding -->
                 <article class="project-item" data-tags="product motion">
                     <div class="project-content">
-                        <p class="project-name">RISD Museum digital guide & wayfinding</p>
+                        <p class="project-name">RISD Museum Digital Guide & Wayfinding</p>
                         <p class="project-description">
                             Redesign and reimagining of digital touchpoints throughout the RISD Museum. Created as a part of the RISD Museum Digital Initiatives team with Lucy Ngyuen Pham & Saatchi Metha
                         </p>
@@ -166,7 +162,7 @@
                 <!-- Various FLora -->
                 <article class="project-item" data-tags="identity motion exhibition">
                     <div class="project-content">
-                        <p class="project-name">Various Flora Exhibition Concept & identity</p>
+                        <p class="project-name">Various Flora Exhibition Concept & Identity</p>
                         <p class="project-description">
                             Visual identity and exhibition concept for Various Flora, an installation exploring floral forms through the lens of machine learning.
                         </p>
@@ -193,7 +189,7 @@
                 <!-- OSCI -->
                 <article class="project-item" data-tags="typeface motion">
                     <div class="project-content">
-                        <p class="project-name">OSCII HYBRID TYPEFACE</p>
+                        <p class="project-name">OSCII Hybrid Typeface</p>
                         <p class="project-description">
                             OSCII is a typeface created by audio. Each letterform is generated through audio signals that are mapped to XY coordinates and output via web application or hardware vector displays. </p>
                     </div>
@@ -383,6 +379,7 @@
         <div class="lightbox-content"></div>
     </div>
 
+    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

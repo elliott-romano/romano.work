@@ -1,5 +1,17 @@
 // Portfolio Website JavaScript
 
+const lenis = new Lenis({
+    duration: 1.2,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+});
+
+function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+}
+requestAnimationFrame(raf);
+
+
 // Toggle show more functionality
 function toggleShowMore(button) {
     const descriptionText = button.previousElementSibling.previousElementSibling;
@@ -241,10 +253,7 @@ document.addEventListener('DOMContentLoaded', function() {
             updatePagination();
             
             // Scroll to top
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            lenis.scrollTo(0);
         });
     }
 
@@ -504,14 +513,51 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Videos are now loaded directly in HTML with src attributes
     // No lazy loading needed
+
+    // Project description drawers
+    document.querySelectorAll('.project-item .project-content').forEach(content => {
+        const name = content.querySelector('.project-name');
+        if (!name) return;
+        name.addEventListener('click', () => {
+            content.classList.toggle('is-open');
+        });
+    });
+
+    // Intro text shrink-on-scroll
+    const heroSection = document.querySelector('.hero-section');
+    const heroCard = heroSection ? heroSection.querySelector('.intro-card') : null;
+    const navEl = document.querySelector('nav');
+    const titleBlend = document.querySelector('.title-blend');
+    if (heroSection && heroCard) {
+        const SHRINK_DISTANCE = 500;
+        let lastP = -1;
+        function updateHero() {
+            const rect = heroSection.getBoundingClientRect();
+            const scrolled = -rect.top;
+            const p = Math.max(0, Math.min(1, scrolled / SHRINK_DISTANCE));
+            if (p !== lastP) {
+                lastP = p;
+                heroSection.style.setProperty('--p', p);
+                document.documentElement.style.setProperty('--p', p);
+                const show = p >= 0.95;
+                document.body.classList.toggle('nav-active', show);
+                if (navEl) {
+                    navEl.style.opacity = show ? '1' : '0';
+                    navEl.style.pointerEvents = show ? 'auto' : 'none';
+                }
+                if (titleBlend) {
+                    titleBlend.style.opacity = show ? '1' : '0';
+                }
+            }
+            requestAnimationFrame(updateHero);
+        }
+        requestAnimationFrame(updateHero);
+    }
 });
 
 // Scroll to top function
 function scrollToTop() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
+    lenis.scrollTo(0);
 }
 
 // Navigate to index page function
