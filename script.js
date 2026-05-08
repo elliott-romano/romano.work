@@ -528,6 +528,19 @@ document.addEventListener('DOMContentLoaded', function() {
     const heroCard = heroSection ? heroSection.querySelector('.intro-card') : null;
     const navEl = document.querySelector('nav');
     const titleBlend = document.querySelector('.title-blend');
+
+    // On pages without a hero (e.g., info), nav stays visible always.
+    if (!heroSection) {
+        document.body.classList.add('nav-active');
+        if (navEl) {
+            navEl.style.opacity = '1';
+            navEl.style.pointerEvents = 'auto';
+        }
+        if (titleBlend) {
+            titleBlend.style.opacity = '1';
+        }
+    }
+
     if (heroSection && heroCard) {
         const SHRINK_DISTANCE = 500;
         let lastP = -1;
@@ -552,6 +565,48 @@ document.addEventListener('DOMContentLoaded', function() {
             requestAnimationFrame(updateHero);
         }
         requestAnimationFrame(updateHero);
+    }
+
+    // Hover preview for inline .underlined terms
+    try {
+        const hoverPreview = document.createElement('div');
+        hoverPreview.className = 'hover-preview';
+        document.body.appendChild(hoverPreview);
+
+        function positionPreview(e) {
+            hoverPreview.style.left = e.clientX + 'px';
+            hoverPreview.style.top = e.clientY + 'px';
+        }
+
+        document.querySelectorAll('.underlined[data-preview]').forEach(el => {
+            el.addEventListener('mouseenter', e => {
+                const src = el.getAttribute('data-preview');
+                const type = el.getAttribute('data-preview-type') || 'image';
+                hoverPreview.innerHTML = '';
+                if (type === 'video') {
+                    const v = document.createElement('video');
+                    v.src = src;
+                    v.muted = true;
+                    v.loop = true;
+                    v.autoplay = true;
+                    v.playsInline = true;
+                    hoverPreview.appendChild(v);
+                    v.play().catch(() => {});
+                } else {
+                    const img = document.createElement('img');
+                    img.src = src;
+                    hoverPreview.appendChild(img);
+                }
+                positionPreview(e);
+                hoverPreview.classList.add('visible');
+            });
+            el.addEventListener('mousemove', positionPreview);
+            el.addEventListener('mouseleave', () => {
+                hoverPreview.classList.remove('visible');
+            });
+        });
+    } catch (err) {
+        console.error('hover preview init failed:', err);
     }
 });
 

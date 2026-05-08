@@ -452,8 +452,13 @@ body.nav-active .title-blend {
 /* Main Content */
 .main-content {
     max-width: none;
-    margin: -70px 0 0 0; /* pull up to overlap the (initially-hidden) sticky nav */
+    margin: 0;
     padding: 24px 24px 0 24px;
+}
+
+/* Pull content up to overlap the (initially-hidden) sticky nav only on pages with a hero */
+body:has(.hero-section) .main-content {
+    margin-top: -70px;
 }
 
 /* Bio Section */
@@ -885,6 +890,27 @@ body.nav-active .title-blend {
     margin-bottom: 0;
 }
 
+.profile-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.profile-image::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse at center, transparent 35%, rgba(0, 255, 47, 0.55) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+}
+
+.profile-image:hover::before {
+    opacity: 1;
+}
+
 .info-section-heading {
     font-size: 14px;
     font-weight: 400;
@@ -1174,6 +1200,35 @@ body.nav-active .title-blend {
 
 .underlined {
     text-decoration: underline;
+    cursor: pointer;
+}
+
+.hover-preview {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    pointer-events: none;
+    opacity: 0;
+    transform: translate(-50%, calc(-100% - 16px)) scale(0.96);
+    transition: opacity 0.22s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    border-radius: 6px;
+    overflow: hidden;
+    z-index: 2000;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+    background: #000;
+}
+
+.hover-preview.visible {
+    opacity: 1;
+    transform: translate(-50%, calc(-100% - 16px)) scale(1);
+}
+
+.hover-preview > img,
+.hover-preview > video {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 /* Intro section — text shrinks on scroll, then behaves like a project title */
@@ -1211,7 +1266,9 @@ body.nav-active .title-blend {
 
 @media (max-width: 768px) {
     .hero-section .intro-paragraph {
-        font-size: calc(40px - 26px * var(--p));
+        font-size: calc(64px - 50px * var(--p));
+        line-height: calc(1.05 + 0.55 * var(--p));
+        letter-spacing: calc(-0.02em * (1 - var(--p)));
     }
     .hero-section .intro-card {
         min-height: calc((100vh - 60px - 16px) * (1 - var(--p)));
@@ -1507,6 +1564,28 @@ body.nav-active .title-blend {
     position: sticky;
     top: 60px; /* stay below sticky nav */
     z-index: 1;
+    overflow: hidden;
+}
+
+.project-content::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse at center, transparent 30%, rgba(0, 180, 25, 0.55) 100%);
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 0;
+}
+
+.project-content:hover::before {
+    opacity: 1;
+}
+
+.project-content > * {
+    position: relative;
+    z-index: 1;
 }
 
 .project-name {
@@ -1647,6 +1726,21 @@ body.nav-active .title-blend {
     overflow: hidden;
     /* Ensure all media tiles share the same height */
     aspect-ratio: 16/9;
+}
+
+.media-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse at center, transparent 35%, rgba(0, 255, 47, 0.55) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+}
+
+.media-item:hover::before {
+    opacity: 1;
 }
 
 .media-item::after {
