@@ -970,7 +970,7 @@ body:has(.hero-section) .main-content {
 /* Profile Card */
 .profile-content p {
     color: #000000;
-    line-height: 1.5;
+    line-height: 1.25;
     margin-bottom: 12px;
     font-size: 14px;
 }
@@ -1087,11 +1087,24 @@ body:has(.hero-section) .main-content {
 }
 
 /* Past Experience Items */
-.past-experience-item {
-    margin-bottom: 20px;
+.past-experience-item,
+.experience-item {
+    margin-bottom: 16px;
 }
 
-.past-experience-item:last-child {
+.past-experience-item:last-child,
+.experience-item:last-child {
+    margin-bottom: 0;
+}
+
+.role-line {
+    font-size: 14px;
+    color: #000000;
+    margin: 0;
+}
+
+.experience-item .location,
+.past-experience-item .location {
     margin-bottom: 0;
 }
 
