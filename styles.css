@@ -973,6 +973,7 @@ body:has(.hero-section) .main-content {
     line-height: 1.25;
     margin-bottom: 12px;
     font-size: 14px;
+    text-wrap: pretty;
 }
 
 .profile-content p strong {
@@ -1087,25 +1088,28 @@ body:has(.hero-section) .main-content {
 }
 
 /* Past Experience Items */
-.past-experience-item,
-.experience-item {
-    margin-bottom: 16px;
+.experience-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.4fr) minmax(0, 1fr);
+    column-gap: 24px;
+    row-gap: 8px;
 }
 
-.past-experience-item:last-child,
-.experience-item:last-child {
-    margin-bottom: 0;
+.experience-card > .experience-item,
+.experience-card > .past-experience-item {
+    display: contents;
 }
 
-.role-line {
+.experience-card .company-name,
+.experience-card .role,
+.experience-card .location {
+    margin: 0;
     font-size: 14px;
     color: #000000;
-    margin: 0;
 }
 
-.experience-item .location,
-.past-experience-item .location {
-    margin-bottom: 0;
+.experience-card .location {
+    font-style: italic;
 }
 
 .past-experience-item .company-name {
